@@ -47,19 +47,19 @@ Vagrant.configure("2") do |config|
   end
 
   # ============================================
-  # 3. client (AlmaLinux 9)
+  # 3. client1 (AlmaLinux 9)
   # ============================================
-  config.vm.define "client" do |client|
-    client.vm.box = "almalinux/9"
-    client.vm.hostname = "client"
-    client.vm.provider "virtualbox" do |v|
+  config.vm.define "client1" do |client1|
+    client1.vm.box = "almalinux/9"
+    client1.vm.hostname = "client1"
+    client1.vm.provider "virtualbox" do |v|
       v.memory = 2048
       v.cpus = 2
     end
 
-    client.vm.network "private_network", ip: "192.168.50.15", adapter: 2, netmask: "255.255.255.0", virtualbox__intnet: "dns"
+    client1.vm.network "private_network", ip: "192.168.50.15", adapter: 2, netmask: "255.255.255.0", virtualbox__intnet: "dns"
 
-    client.vm.provision "shell",
+    client1.vm.provision "shell",
       run: "always",
       inline: <<-SHELL
         ###
