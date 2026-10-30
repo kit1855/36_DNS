@@ -26,12 +26,23 @@ Vagrant.configure("2") do |config|
         # установка пакетов
         sudo dnf install -y bind bind-utils
 
-        # NAMED.DNS.LAB
+        # TSIG-ключ
+        sudo cp /vagrant/provisioning/named.zonetransfer.key /etc/named.zonetransfer.key
+        sudo chown root:named /etc/named.zonetransfer.key
+        sudo chmod 640 /etc/named.zonetransfer.key
+
+        # Копирование конфигов и ключей
         sudo cp /vagrant/provisioning/named.dns.lab /etc/named/named.dns.lab
         sudo cp /vagrant/provisioning/master-named.conf /etc/named.conf
-        sudo named-checkconf                                                     # проверка конфига
-        sudo named-checkzone dns.lab /etc/named/named.dns.lab                    # проверка зоны
-        sudo systemctl enable --now named                                        # запуск сервиса
+
+        # проверки конфига и зоны
+        sudo named-checkconf
+        sudo named-checkzone dns.lab /etc/named/named.dns.lab
+
+        # запуск сервиса        
+        sudo systemctl enable --now named
+
+
 
     SHELL
   end
