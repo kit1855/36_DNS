@@ -22,7 +22,17 @@ Vagrant.configure("2") do |config|
     ns01.vm.provision "shell",
       run: "always",
       inline: <<-SHELL
-        ###
+
+        # установка пакетов
+        sudo dnf install -y bind bind-utils
+
+        # NAMED.DNS.LAB
+        sudo cp /vagrant/provisioning/named.dns.lab /etc/named/named.dns.lab
+        sudo cp /vagrant/provisioning/master-named.conf /etc/named.conf
+        sudo named-checkconf                                                     # проверка конфига
+        sudo named-checkzone dns.lab /etc/named/named.dns.lab                    # проверка зоны
+        sudo systemctl enable --now named                                        # запуск сервиса
+
     SHELL
   end
 
