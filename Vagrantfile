@@ -1,22 +1,5 @@
 # -*- mode: ruby -*-
 # vim: set ft=ruby :
-####################################################################################################
-#ns01, ns02, client, client2
-####################################################################################################
-#  config.vm.define "ns01" do |ns01|
-#    ns01.vm.network "private_network", ip: "192.168.50.10", virtualbox__intnet: "dns"
-#    ns01.vm.hostname = "ns01"
-#  end
-#
-#  config.vm.define "ns02" do |ns02|
-#    ns02.vm.network "private_network", ip: "192.168.50.11", virtualbox__intnet: "dns"
-#    ns02.vm.hostname = "ns02"
-#  end
-#
-#  config.vm.define "client" do |client|
-#    client.vm.network "private_network", ip: "192.168.50.15", virtualbox__intnet: "dns"
-#    client.vm.hostname = "client"
-####################################################################################################
 
 # Указываем зеркало для скачивания образов
 ENV['VAGRANT_SERVER_URL'] = 'https://vagrant.elab.pro'
@@ -63,7 +46,6 @@ Vagrant.configure("2") do |config|
     SHELL
   end
 
-
   # ============================================
   # 3. client (AlmaLinux 9)
   # ============================================
@@ -83,7 +65,6 @@ Vagrant.configure("2") do |config|
         ###
     SHELL
   end
-
 
   # ============================================
   # 4. client2 (AlmaLinux 9)
