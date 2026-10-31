@@ -106,7 +106,7 @@ Vagrant.configure("2") do |config|
     client1.vm.provision "shell",
       run: "always",
       inline: <<-SHELL
-        ###
+        sudo dnf install -y bind-utils
     SHELL
   end
 
@@ -126,7 +126,7 @@ Vagrant.configure("2") do |config|
     client2.vm.provision "shell",
       run: "always",
       inline: <<-SHELL
-        ###
+        sudo dnf install -y bind-utils
     SHELL
   end
 
