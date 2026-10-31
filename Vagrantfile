@@ -33,11 +33,13 @@ Vagrant.configure("2") do |config|
 
         # Копирование конфигов и ключей
         sudo cp /vagrant/provisioning/named.dns.lab /etc/named/named.dns.lab
+        sudo cp /vagrant/provisioning/named.newdns.lab /etc/named/named.newdns.lab
         sudo cp /vagrant/provisioning/master-named.conf /etc/named.conf
 
         # проверки конфига и зоны
         sudo named-checkconf
         sudo named-checkzone dns.lab /etc/named/named.dns.lab
+        sudo named-checkzone newdns.lab /etc/named/named.newdns.lab
 
         # запуск сервиса        
         sudo systemctl enable --now named
