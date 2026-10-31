@@ -42,8 +42,6 @@ Vagrant.configure("2") do |config|
         # запуск сервиса        
         sudo systemctl enable --now named
 
-
-
     SHELL
   end
 
@@ -63,7 +61,28 @@ Vagrant.configure("2") do |config|
     ns02.vm.provision "shell",
       run: "always",
       inline: <<-SHELL
-        ###
+
+        # установка пакетов
+        sudo dnf install -y bind bind-utils
+
+        # TSIG-ключ
+        sudo cp /vagrant/provisioning/named.zonetransfer.key /etc/named.zonetransfer.key
+        sudo chown root:named /etc/named.zonetransfer.key
+        sudo chmod 640 /etc/named.zonetransfer.key
+
+        # копирование конфига slave
+        sudo cp /vagrant/provisioning/slave-named.conf /etc/named.conf
+
+        # создаём каталог для файлов зон, полученных с мастера
+        sudo mkdir -p /var/named/slaves
+        sudo chown named:named /var/named/slaves
+
+        # проверки конфига и зоны
+        sudo named-checkconf
+
+        # запуск сервиса        
+        sudo systemctl enable --now named
+
     SHELL
   end
 
