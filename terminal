@@ -1,4 +1,9 @@
-# заупск вагрантфайла
+#############################
+##                         ##
+##   запуск вагрантфайла   ##
+##                         ##
+#############################
+
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz5> vagrant up
 Bringing machine 'ns01' up with 'virtualbox' provider...
 Bringing machine 'ns02' up with 'virtualbox' provider...
@@ -746,7 +751,12 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client2:
     client2: Complete!
 
-# проверки на ВМ ns01
+#############################
+##                         ##
+##   проверки на ВМ ns01   ##
+##                         ##
+#############################
+
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz5> vagrant ssh ns01
 
 # проверка конфигурации. Если ошибок нет, то ничего не покажет
@@ -754,7 +764,12 @@ PS D:\linux\Professional\36 DNS - настройка и обслуживание
 [vagrant@ns01 ~]$ exit
 logout
 
-# проверки на ВМ ns02
+#############################
+##                         ##
+##   проверки на ВМ ns02   ##
+##                         ##
+#############################
+
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz5> vagrant ssh ns02
 
 # проверка, что Slave получил зоны с Master
@@ -790,8 +805,15 @@ web1.dns.lab.           3600    IN      A       192.168.50.15
 [vagrant@ns02 ~]$ exit
 logout
 
-# проверки на ВМ client1
+################################
+##                            ##
+##   проверки на ВМ client1   ##
+##                            ##
+################################
+
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz5> vagrant ssh client1
+
+# проверка что client1 — видит web1 из зоны dns.lab
 [vagrant@client1 ~]$ dig @192.168.50.10 web1.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web1.dns.lab
@@ -815,6 +837,7 @@ web1.dns.lab.           3600    IN      A       192.168.50.15
 ;; WHEN: Sun Nov 01 16:14:14 UTC 2026
 ;; MSG SIZE  rcvd: 85
 
+# проверка что client1 — не видит web2 из зоны dns.lab
 [vagrant@client1 ~]$ dig @192.168.50.10 web2.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
@@ -838,29 +861,7 @@ dns.lab.                600     IN      SOA     ns01.dns.lab. root.dns.lab. 2711
 ;; WHEN: Sun Nov 01 16:14:21 UTC 2026
 ;; MSG SIZE  rcvd: 115
 
-[vagrant@client1 ~]$ dig @192.168.50.10 www.newdns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 25140
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-;; QUESTION SECTION:
-;www.newdns.lab.                        IN      A
-
-;; ANSWER SECTION:
-www.newdns.lab.         3600    IN      A       192.168.50.15
-www.newdns.lab.         3600    IN      A       192.168.50.16
-
-;; Query time: 1 msec
-;; SERVER: 192.168.50.10#53(192.168.50.10)
-;; WHEN: Sun Nov 01 16:14:28 UTC 2026
-;; MSG SIZE  rcvd: 103
-
+# проверка что client1 — видит зону newdns.lab
 [vagrant@client1 ~]$ dig @192.168.50.10 www.newdns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
@@ -888,8 +889,15 @@ www.newdns.lab.         3600    IN      A       192.168.50.15
 [vagrant@client1 ~]$ exit
 logout
 
-# проверки на ВМ client2
+################################
+##                            ##
+##   проверки на ВМ client2   ##
+##                            ##
+################################
+
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz5> vagrant ssh client2
+
+# проверка что client2 — видит web1 из зоны dns.lab
 [vagrant@client2 ~]$ dig @192.168.50.10 web1.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web1.dns.lab
@@ -913,6 +921,7 @@ web1.dns.lab.           3600    IN      A       192.168.50.15
 ;; WHEN: Sun Nov 01 16:16:42 UTC 2026
 ;; MSG SIZE  rcvd: 85
 
+# проверка что client2 — видит web2 из зоны dns.lab
 [vagrant@client2 ~]$ dig @192.168.50.10 web2.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
@@ -936,6 +945,7 @@ web2.dns.lab.           3600    IN      A       192.168.50.16
 ;; WHEN: Sun Nov 01 16:16:53 UTC 2026
 ;; MSG SIZE  rcvd: 85
 
+# проверка что client2 — не видит зону newdns.lab
 [vagrant@client2 ~]$ dig @192.168.50.10 www.newdns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
