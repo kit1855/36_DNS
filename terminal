@@ -759,7 +759,10 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz5> vagrant ssh ns01
 
-# проверка конфигурации. Если ошибок нет, то ничего не покажет
+# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
+# В репозитории это файл provisioning/master-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
+# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.key, 
+# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.key"; 
 [vagrant@ns01 ~]$ sudo named-checkconf
 [vagrant@ns01 ~]$ exit
 logout
