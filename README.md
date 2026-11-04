@@ -6,7 +6,7 @@ Vagrantfile - файл для запуска стэнда
 
 terminal - содержимое терминала при запуске виртуальных машин, и проверки, показывающие выполнение задания.
 
-provisioning/
+provisioning:
   - master-named.conf
 
   - named.dns.lab
