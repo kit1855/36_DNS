@@ -4,17 +4,17 @@ dz - описание домашнего задания
 
 Vagrantfile - файл для запуска стэнда
 
-terminal - содержимое терминала при запуске виртуальных машин, и проверки, показывающие выполнение задания.
+terminal - содержимое терминала при запуске виртуальных машин, и проверки, показывающие выполнение задания
 
 provisioning:
-  - master-named.conf
+  - master-named.conf - конфиг bind для ВМ ns01, копируется внутрь ВМ и переименовывается в named.conf
 
-  - named.dns.lab
+  - named.dns.lab - описание зоны dns.lab
 
-  - named.dns.lab.client
+  - named.dns.lab.client - описание зоны для работы bind на ВМ ns01 в режиме сплит-днс
 
-  - named.newdns.lab
+  - named.newdns.lab - описание зоны newdns.lab
 
-  - named.zonetransfer.key
+  - named.zonetransfer.key - ключ, по которому сервис bind на ВМ ns02 будет подключаться к ns01 и забирать зоны, а сервис bind на ВМ ns01 проверять ключ на соответствие и отдаст зоны только при совпадении ключа
 
-  - slave-named.conf
+  - slave-named.conf - конфиг для bind на ВМ ns02, копируется внутрь ВМ и переименовывается в named.conf
