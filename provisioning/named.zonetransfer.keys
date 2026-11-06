@@ -1,14 +1,9 @@
 key "zonetransfer.key" {
-    algorithm hmac-md5;
-    secret "SB4Db9pJomyKxTNynlAq/g==";
+        algorithm hmac-sha256;
+        secret "MwAYrLNO/0ymtlr7iSLDinRD+EniI0xy58si/0u4IWY=";
 };
-
 
 key "client1-transfer-key" {
         algorithm hmac-sha256;
-        secret "hBS6esvWPPtBzNcE2oXxUdyB3k6oAx7IXaGPD9BYwN4=";
+        secret "Mrx5C8oBL1IcTD3pZ2q8EefiwxK/4eEd7fbDtitENzU=";
 };
-
-
-
-
