@@ -27,7 +27,7 @@ Vagrant.configure("2") do |config|
         sudo dnf install -y bind bind-utils
 
         # TSIG-ключ
-        sudo cp /vagrant/provisioning/named.zonetransfer.keys /etc/named.zonetransfer.key
+        sudo cp /vagrant/provisioning/named.zonetransfer.keys /etc/named.zonetransfer.keys
         sudo chown root:named /etc/named.zonetransfer.keys
         sudo chmod 640 /etc/named.zonetransfer.keys
 
@@ -70,7 +70,7 @@ Vagrant.configure("2") do |config|
         sudo dnf install -y bind bind-utils
 
         # TSIG-ключ
-        sudo cp /vagrant/provisioning/named.zonetransfer.keys /etc/named.zonetransfer.key
+        sudo cp /vagrant/provisioning/named.zonetransfer.keys /etc/named.zonetransfer.keys
         sudo chown root:named /etc/named.zonetransfer.keys
         sudo chmod 640 /etc/named.zonetransfer.keys
 
