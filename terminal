@@ -760,8 +760,6 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ##                         ##
 #############################
 
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz8> vagrant ssh ns01
-
 # проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
 # В репозитории это файл provisioning/master-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
 # также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
@@ -845,8 +843,6 @@ www.newdns.lab.         3600    IN      A       192.168.50.16
 ##                         ##
 #############################
 
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz8> vagrant ssh ns02
-
 # проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
 # В репозитории это файл provisioning/slave-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
 # также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
@@ -861,11 +857,6 @@ total 12
 -rw-r--r--. 1 named named 316 Nov  9 15:58 named.newdns.lab.default
 
 # проверки, что ВМ ns02 может отдавать зоны
-
-
-
-
-
 [vagrant@ns02 ~]$ dig @localhost web1.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @localhost web1.dns.lab
