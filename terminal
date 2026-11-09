@@ -760,9 +760,15 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ##                         ##
 #############################
 
-
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz8> vagrant ssh ns01
+
+# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
+# В репозитории это файл provisioning/master-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
+# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
+# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.keys";
 [vagrant@ns01 ~]$ sudo named-checkconf
+
+# проверки, что сам ВМ ns01 может отдавать зоны, статус всех проверок NOERROR.
 [vagrant@ns01 ~]$ dig @localhost web1.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @localhost web1.dns.lab
@@ -784,18 +790,54 @@ newdns.lab.             600     IN      SOA     ns01.newdns.lab. root.newdns.lab
 ;; WHEN: Mon Nov 09 16:15:01 UTC 2026
 ;; MSG SIZE  rcvd: 118
 
-[vagrant@ns01 ~]$ exit
-logout
+[vagrant@ns01 ~]$ dig @localhost web2.dns.lab
 
+; <<>> DiG 9.16.23-RH <<>> @localhost web2.dns.lab
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 15352
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
-# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
-# В репозитории это файл provisioning/master-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
-# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.key,
-# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.key";
-# проверки, что сервер может отдавать зоны делаться не будут по причине того, что эти проверки будут сделаны на клиентах.
-# и если на клиенте это сработает, значит, сервер функционирует правильно. А на клиентах выполняться будут выполняться все проверки,
-# согласно условиям ДЗ, а именно правильность работы сплит-днс.
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: d7ec74e534794a49010000006af1f705fdfb278c6bf1750f (good)
+;; QUESTION SECTION:
+;web2.dns.lab.                  IN      A
 
+;; ANSWER SECTION:
+web2.dns.lab.           3600    IN      A       192.168.50.16
+
+;; Query time: 1 msec
+;; SERVER: ::1#53(::1)
+;; WHEN: Mon Nov 09 16:38:29 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+[vagrant@ns01 ~]$ dig @localhost www.newdns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @localhost www.newdns.lab
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 52291
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: b87bdc7948d1ddae010000006af1f71259c45c77e3e26402 (good)
+;; QUESTION SECTION:
+;www.newdns.lab.                        IN      A
+
+;; ANSWER SECTION:
+www.newdns.lab.         3600    IN      A       192.168.50.15
+www.newdns.lab.         3600    IN      A       192.168.50.16
+
+;; Query time: 2 msec
+;; SERVER: ::1#53(::1)
+;; WHEN: Mon Nov 09 16:38:42 UTC 2026
+;; MSG SIZE  rcvd: 103
+
+[vagrant@ns01 ~]$
 
 #############################
 ##                         ##
@@ -804,12 +846,26 @@ logout
 #############################
 
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz8> vagrant ssh ns02
+
+# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
+# В репозитории это файл provisioning/slave-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
+# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
+# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.keys";
 [vagrant@ns02 ~]$ sudo named-checkconf
+
+# проверка, что Slave получил зоны с Master
 [vagrant@ns02 ~]$ sudo ls -l /var/named/slaves/
 total 12
 -rw-r--r--. 1 named named 284 Nov  9 15:58 named.dns.lab.client1
 -rw-r--r--. 1 named named 324 Nov  9 15:58 named.dns.lab.default
 -rw-r--r--. 1 named named 316 Nov  9 15:58 named.newdns.lab.default
+
+# проверки, что ВМ ns02 может отдавать зоны
+
+
+
+
+
 [vagrant@ns02 ~]$ dig @localhost web1.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @localhost web1.dns.lab
@@ -858,40 +914,82 @@ web1.dns.lab.           3600    IN      A       192.168.50.15
 
 [vagrant@ns02 ~]$
 
-# проверка, что Slave получил зоны с Master
-# проверка что Slave в принципе может отвечать на запросы, для примера был запрос на web1,
-# все зоны были получены, а значит отвечать на запросы клиентов в случае неработоспособности ns01 он сможет.
-# к тому же все необходимые проверки будут сделаны на клиентах.
-
 ################################
 ##                            ##
 ##   проверки на ВМ client1   ##
 ##                            ##
 ################################
 
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz8> vagrant ssh client1
-[vagrant@client1 ~]$ dig @192.168.50.11 web1.dns.lab
+# проверка что client1 — видит web1 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NOERROR
+[vagrant@client1 ~]$ dig @192.168.50.10 web1.dns.lab
 
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web1.dns.lab
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web1.dns.lab
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 32599
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 47997
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: d647cbdc1a6d75aa010000006af1f0071dafd7e5a587f8aa (good)
+; COOKIE: 8791dd08418b6cf8010000006af1fd00924a0dbe320b0f6c (good)
 ;; QUESTION SECTION:
 ;web1.dns.lab.                  IN      A
 
 ;; ANSWER SECTION:
 web1.dns.lab.           3600    IN      A       192.168.50.15
 
-;; Query time: 4 msec
-;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Mon Nov 09 16:08:39 UTC 2026
+;; Query time: 1 msec
+;; SERVER: 192.168.50.10#53(192.168.50.10)
+;; WHEN: Mon Nov 09 17:04:00 UTC 2026
 ;; MSG SIZE  rcvd: 85
+
+[vagrant@client1 ~]$ dig @192.168.50.11 web1.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web1.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 44823
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 55f654670ea31b18010000006af1fd05ba28243abf51b808 (good)
+;; QUESTION SECTION:
+;web1.dns.lab.                  IN      A
+
+;; ANSWER SECTION:
+web1.dns.lab.           3600    IN      A       192.168.50.15
+
+;; Query time: 1 msec
+;; SERVER: 192.168.50.11#53(192.168.50.11)
+;; WHEN: Mon Nov 09 17:04:05 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+# проверка что client1 — не видит web2 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NXDOMAIN
+[vagrant@client1 ~]$ dig @192.168.50.10 web2.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 44810
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 76d96f5415ef2d96010000006af1fd0fd1598ce1348f2f91 (good)
+;; QUESTION SECTION:
+;web2.dns.lab.                  IN      A
+
+;; AUTHORITY SECTION:
+dns.lab.                600     IN      SOA     ns01.dns.lab. root.dns.lab. 2711201407 3600 600 86400 600
+
+;; Query time: 4 msec
+;; SERVER: 192.168.50.10#53(192.168.50.10)
+;; WHEN: Mon Nov 09 17:04:15 UTC 2026
+;; MSG SIZE  rcvd: 115
 
 [vagrant@client1 ~]$ dig @192.168.50.11 web2.dns.lab
 
@@ -899,21 +997,47 @@ web1.dns.lab.           3600    IN      A       192.168.50.15
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 4727
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 22644
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 19c3cc3e911b325e010000006af1f01ad58ffe4dbb1ca8e0 (good)
+; COOKIE: 41114eeddb28461e010000006af1fd152b2465cdd0ef42f2 (good)
 ;; QUESTION SECTION:
 ;web2.dns.lab.                  IN      A
+
 ;; AUTHORITY SECTION:
 dns.lab.                600     IN      SOA     ns01.dns.lab. root.dns.lab. 2711201407 3600 600 86400 600
 
-;; Query time: 7 msec
+;; Query time: 3 msec
 ;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Mon Nov 09 16:08:58 UTC 2026
+;; WHEN: Mon Nov 09 17:04:21 UTC 2026
 ;; MSG SIZE  rcvd: 115
+
+# проверка что client1 — видит www из зоны newdns.lab с мастера и со слэйва, об этом говорит статус NOERROR
+[vagrant@client1 ~]$ dig @192.168.50.10 www.newdns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 26888
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 48f1a9b5eafe1834010000006af1fd1bd56dfdd3a3690dac (good)
+;; QUESTION SECTION:
+;www.newdns.lab.                        IN      A
+
+;; ANSWER SECTION:
+www.newdns.lab.         3600    IN      A       192.168.50.16
+www.newdns.lab.         3600    IN      A       192.168.50.15
+
+;; Query time: 3 msec
+;; SERVER: 192.168.50.10#53(192.168.50.10)
+;; WHEN: Mon Nov 09 17:04:27 UTC 2026
+;; MSG SIZE  rcvd: 103
 
 [vagrant@client1 ~]$ dig @192.168.50.11 www.newdns.lab
 
@@ -921,92 +1045,25 @@ dns.lab.                600     IN      SOA     ns01.dns.lab. root.dns.lab. 2711
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 35858
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 25851
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: ca3a66d7af4e4795010000006af1f020e20f589365536f60 (good)
+; COOKIE: f34ec31052f49408010000006af1fd207fccfcdafd80a911 (good)
 ;; QUESTION SECTION:
 ;www.newdns.lab.                        IN      A
 
 ;; ANSWER SECTION:
-www.newdns.lab.         3600    IN      A       192.168.50.16
 www.newdns.lab.         3600    IN      A       192.168.50.15
+www.newdns.lab.         3600    IN      A       192.168.50.16
 
-;; Query time: 6 msec
+;; Query time: 3 msec
 ;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Mon Nov 09 16:09:04 UTC 2026
+;; WHEN: Mon Nov 09 17:04:32 UTC 2026
 ;; MSG SIZE  rcvd: 103
 
 [vagrant@client1 ~]$
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$ exit
-logout
-
-
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz8> vagrant ssh client1
-Last login: Mon Nov  9 16:08:32 2026 from 10.0.2.2
-[vagrant@client1 ~]$ dig @192.168.50.10 web2.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 40632
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 58318f90b51eb222010000006af1f092f988ef3abfce14b7 (good)
-;; QUESTION SECTION:
-;web2.dns.lab.                  IN      A
-
-;; AUTHORITY SECTION:
-2711201407 3600 600 86400 600
-
-;; Query time: 4 msec
-;; SERVER: 192.168.50.10#53(192.168.50.10)
-;; WHEN: Mon Nov 09 16:10:58 UTC 2026
-;; MSG SIZE  rcvd: 115
-
-[vagrant@client1 ~]$ dig @192.168.50.10 www.newdns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 41676
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 41cac51cfa617842010000006af1f09670bc47a95bb4e614 (good)
-;; QUESTION SECTION:
-;www.newdns.lab.                        IN      A
-
-;; ANSWER SECTION:
-www.newdns.lab.         3600    IN      A       192.168.50.15
-www.newdns.lab.         3600    IN      A       192.168.50.16
-
-;; Query time: 4 msec
-;; SERVER: 192.168.50.10#53(192.168.50.10)
-;; WHEN: Mon Nov 09 16:11:02 UTC 2026
-;; MSG SIZE  rcvd: 103
-
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$ exit
-logout
-
-
-# проверка что client1 — видит web1 из зоны dns.lab, об этом говорит статус NOERROR
-# проверка что client1 — не видит web2 из зоны dns.lab, об этом говорит статус NXDOMAIN
-# проверка что client1 — видит зону newdns.lab, об этом говорит статус NOERROR
 
 ################################
 ##                            ##
@@ -1014,28 +1071,75 @@ logout
 ##                            ##
 ################################
 
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz8> vagrant ssh client2
-[vagrant@client2 ~]$ dig @192.168.50.11 web1.dns.lab
+# проверка что client2 — видит web1 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NOERROR
+[vagrant@client2 ~]$ dig @192.168.50.10 web1.dns.lab
 
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web1.dns.lab
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web1.dns.lab
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 64785
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 42167
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 4b2bef9513ca3803010000006af1f0430af370fc2820d4da (good)
+; COOKIE: 4c5ce5904f3ec332010000006af1fe38957b9bef016edba6 (good)
 ;; QUESTION SECTION:
 ;web1.dns.lab.                  IN      A
 
 ;; ANSWER SECTION:
 web1.dns.lab.           3600    IN      A       192.168.50.15
 
-;; Query time: 7 msec
+;; Query time: 2 msec
+;; SERVER: 192.168.50.10#53(192.168.50.10)
+;; WHEN: Mon Nov 09 17:09:12 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+[vagrant@client2 ~]$ dig @192.168.50.11 web1.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web1.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 44397
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: cd5ab0c360597999010000006af1fe3bdfb4eb128a88855c (good)
+;; QUESTION SECTION:
+;web1.dns.lab.                  IN      A
+
+;; ANSWER SECTION:
+web1.dns.lab.           3600    IN      A       192.168.50.15
+
+;; Query time: 5 msec
 ;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Mon Nov 09 16:09:39 UTC 2026
+;; WHEN: Mon Nov 09 17:09:16 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+# проверка что client2 — видит web2 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NOERROR
+[vagrant@client2 ~]$ dig @192.168.50.10 web2.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 4103
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 9cb0cc2f7761e0f2010000006af1fe45dc316df3db426c21 (good)
+;; QUESTION SECTION:
+;web2.dns.lab.                  IN      A
+
+;; ANSWER SECTION:
+web2.dns.lab.           3600    IN      A       192.168.50.16
+
+;; Query time: 3 msec
+;; SERVER: 192.168.50.10#53(192.168.50.10)
+;; WHEN: Mon Nov 09 17:09:25 UTC 2026
 ;; MSG SIZE  rcvd: 85
 
 [vagrant@client2 ~]$ dig @192.168.50.11 web2.dns.lab
@@ -1044,22 +1148,46 @@ web1.dns.lab.           3600    IN      A       192.168.50.15
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 41259
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 15214
 ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 6093730c133402f9010000006af1f04c40e246524aaeb97f (good)
+; COOKIE: 9338ca50af86fb35010000006af1fe4aa36c05bbd948b046 (good)
 ;; QUESTION SECTION:
 ;web2.dns.lab.                  IN      A
 
 ;; ANSWER SECTION:
 web2.dns.lab.           3600    IN      A       192.168.50.16
 
-;; Query time: 7 msec
+;; Query time: 4 msec
 ;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Mon Nov 09 16:09:48 UTC 2026
+;; WHEN: Mon Nov 09 17:09:30 UTC 2026
 ;; MSG SIZE  rcvd: 85
+
+# проверка что client2 — не видит www из зоны newdns.lab с мастера и со слэйва, об этом говорит статус NXDOMAIN
+[vagrant@client2 ~]$ dig @192.168.50.10 www.newdns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 15604
+;; flags: qr rd ra ad; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: e32de25cb964264f010000006af1fe56175a31c1dbdebc46 (good)
+;; QUESTION SECTION:
+;www.newdns.lab.                        IN      A
+
+;; AUTHORITY SECTION:
+.                       7250    IN      SOA     a.root-servers.net. nstld.verisign-grs.com. 2026110900 1800 900 604800 86400
+
+;; Query time: 5 msec
+;; SERVER: 192.168.50.10#53(192.168.50.10)
+;; WHEN: Mon Nov 09 17:09:42 UTC 2026
+;; MSG SIZE  rcvd: 146
 
 [vagrant@client2 ~]$ dig @192.168.50.11 www.newdns.lab
 
@@ -1067,76 +1195,19 @@ web2.dns.lab.           3600    IN      A       192.168.50.16
 ; (1 server found)
 ;; global options: +cmd
 ;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 34134
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 34766
 ;; flags: qr rd ra ad; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
 
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 447e910f77b91111010000006af1f0573e4185f7fb496c2e (good)
+; COOKIE: b4d1472be0bd179d010000006af1fe5a015df75629725dd4 (good)
 ;; QUESTION SECTION:
 ;www.newdns.lab.                        IN      A
 
 ;; AUTHORITY SECTION:
-.                       10800   IN      SOA     a.root-servers.net. nstld.verisign-grs.com. 2026110900 1800 900 604800 86400
-
-;; Query time: 893 msec
-;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Mon Nov 09 16:09:59 UTC 2026
-;; MSG SIZE  rcvd: 146
-
-[vagrant@client2 ~]$ dig @192.168.50.10 web2.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 57617
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 88e36390804df572010000006af1f0713443c39fd90371b8 (good)
-;; QUESTION SECTION:
-;web2.dns.lab.                  IN      A
-
-web2.dns.lab.           3600    IN      A       192.168.50.16
+.                       7213    IN      SOA     a.root-servers.net. nstld.verisign-grs.com. 2026110900 1800 900 604800 86400
 
 ;; Query time: 5 msec
-;; SERVER: 192.168.50.10#53(192.168.50.10)
-;; WHEN: Mon Nov 09 16:10:25 UTC 2026
-;; MSG SIZE  rcvd: 85
-
-[vagrant@client2 ~]$ dig @192.168.50.10 www.newdns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 31405
-;; flags: qr rd ra ad; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 6f787ee5f108b91f010000006af1f0786105a4bc757f9465 (good)
-;; QUESTION SECTION:
-;www.newdns.lab.                        IN      A
-
-;; AUTHORITY SECTION:
-.                       10800   IN      SOA     a.root-servers.net. nstld.verisign-grs.com. 2026110900 1800 900 604800 86400
-
-;; Query time: 873 msec
-;; SERVER: 192.168.50.10#53(192.168.50.10)
-;; WHEN: Mon Nov 09 16:10:32 UTC 2026
+;; SERVER: 192.168.50.11#53(192.168.50.11)
+;; WHEN: Mon Nov 09 17:09:46 UTC 2026
 ;; MSG SIZE  rcvd: 146
-
-[vagrant@client2 ~]$
-[vagrant@client2 ~]$
-[vagrant@client2 ~]$
-[vagrant@client2 ~]$
-[vagrant@client2 ~]$
-[vagrant@client2 ~]$ exit
-logout
-
-# проверка что client2 — видит web1 из зоны dns.lab, об этом говорит статус NOERROR
-# проверка что client2 — видит web2 из зоны dns.lab, об этом говорит статус NOERROR
-# проверка что client2 — не видит зону newdns.lab, об этом говорит статус NXDOMAIN
