@@ -3,7 +3,7 @@
 ##   запуск вагрантфайла   ##
 ##                         ##
 #############################
-PS D:\> cd '.\linux\Professional\36 DNS - настройка и обслуживание\dz9\'
+
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9> vagrant up
 Bringing machine 'ns01' up with 'virtualbox' provider...
 Bringing machine 'ns02' up with 'virtualbox' provider...
@@ -12,7 +12,7 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> ns01: Importing base box 'almalinux/9'...
 ==> ns01: Matching MAC address for NAT networking...
 ==> ns01: Checking if box 'almalinux/9' version '1.0.0' is up to date...
-==> ns01: Setting the name of the VM: dz9_ns01_1794417175092_10477
+==> ns01: Setting the name of the VM: dz9_ns01_1794421039432_3348
 ==> ns01: Clearing any previously set network interfaces...
 ==> ns01: Preparing network interfaces based on configuration...
     ns01: Adapter 1: nat
@@ -40,9 +40,10 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     ns01: D:/linux/Professional/36 DNS - настройка и обслуживание/dz9 => /vagrant
 ==> ns01: Running provisioner: shell...
     ns01: Running: inline script
-    ns01: AlmaLinux 9 - AppStream                         382 kB/s |  34 MB     01:30
-    ns01: AlmaLinux 9 - BaseOS                            740 kB/s |  57 MB     01:18
-    ns01: AlmaLinux 9 - Extras                             33 kB/s |  33 kB     00:00
+    ns01: AlmaLinux 9 - AppStream                         812 kB/s |  34 MB     00:42
+    ns01: AlmaLinux 9 - BaseOS                            542 kB/s |  57 MB     01:46
+    ns01: AlmaLinux 9 - Extras                             34 kB/s |  33 kB     00:00
+    ns01: Last metadata expiration check: 0:00:01 ago on Wed 11 Nov 2026 06:20:57 PM UTC.
     ns01: Dependencies resolved.
     ns01: ================================================================================
     ns01:  Package                       Arch    Version                 Repository  Size
@@ -90,39 +91,39 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     ns01:
     ns01: Total download size: 16 M
     ns01: Downloading Packages:
-    ns01: (1/31): bind-dnssec-utils-9.16.23-40.el9_8.13.x 723 kB/s | 114 kB     00:00
-    ns01: (2/31): bind-9.16.23-40.el9_8.13.x86_64.rpm     2.0 MB/s | 490 kB     00:00
-    ns01: (3/31): bind-license-9.16.23-40.el9_8.13.noarch 118 kB/s |  14 kB     00:00
-    ns01: (4/31): bind-utils-9.16.23-40.el9_8.13.x86_64.r 1.9 MB/s | 200 kB     00:00
-    ns01: (5/31): checkpolicy-3.6-1.el9.x86_64.rpm        953 kB/s | 351 kB     00:00
-    ns01: (6/31): fstrm-0.6.1-3.el9.x86_64.rpm            156 kB/s |  27 kB     00:00
-    ns01: (7/31): libmaxminddb-1.5.2-4.el9.x86_64.rpm     147 kB/s |  32 kB     00:00
-    ns01: (8/31): bind-dnssec-doc-9.16.23-40.el9_8.13.noa  34 kB/s |  46 kB     00:01
-    ns01: (9/31): libuv-1.42.0-2.el9_4.x86_64.rpm         694 kB/s | 146 kB     00:00
-    ns01: (10/31): python3-audit-3.1.5-8.el9.x86_64.rpm   264 kB/s |  82 kB     00:00
-    ns01: (11/31): policycoreutils-python-utils-3.6-5.el9 170 kB/s |  69 kB     00:00
-    ns01: (12/31): python3-distro-1.5.0-7.el9.noarch.rpm  279 kB/s |  36 kB     00:00
-    ns01: (13/31): python3-bind-9.16.23-40.el9_8.13.noarc 314 kB/s |  62 kB     00:00
-    ns01: (14/31): python3-libsemanage-3.6-5.el9_6.x86_64 331 kB/s |  78 kB     00:00
-    ns01: (15/31): bind-libs-9.16.23-40.el9_8.13.x86_64.r 403 kB/s | 1.2 MB     00:03
-    ns01: (16/31): protobuf-c-1.3.3-13.el9.x86_64.rpm     280 kB/s |  34 kB     00:00
-    ns01: (17/31): python3-ply-3.11-14.el9.noarch.rpm     388 kB/s | 103 kB     00:00
-    ns01: (18/31): python3-setools-4.4.4-1.el9.x86_64.rpm 641 kB/s | 551 kB     00:00
-    ns01: (19/31): openssl-fips-provider-3.5.8-2.el9_8.x8 329 kB/s | 813 kB     00:02
-    ns01: (20/31): python3-policycoreutils-3.6-5.el9.noar 531 kB/s | 2.0 MB     00:03
-    ns01: (21/31): python3-libselinux-3.6-3.el9.x86_64.rp 491 kB/s | 186 kB     00:00
-    ns01: (22/31): audit-3.1.5-8.el9.x86_64.rpm           613 kB/s | 253 kB     00:00
-    ns01: (23/31): python3-setuptools-53.0.0-15.el9.noarc 386 kB/s | 831 kB     00:02
-    ns01: (24/31): audit-libs-3.1.5-8.el9.x86_64.rpm      665 kB/s | 121 kB     00:00
-    ns01: (25/31): libselinux-3.6-3.el9.x86_64.rpm        239 kB/s |  85 kB     00:00
-    ns01: (26/31): libselinux-utils-3.6-3.el9.x86_64.rpm  470 kB/s | 164 kB     00:00
-    ns01: (27/31): libsemanage-3.6-5.el9_6.x86_64.rpm     199 kB/s | 117 kB     00:00
-    ns01: (28/31): openssl-3.5.8-2.el9_8.x86_64.rpm       409 kB/s | 1.4 MB     00:03
-    ns01: (29/31): policycoreutils-3.6-5.el9.x86_64.rpm   490 kB/s | 205 kB     00:00
-    ns01: (30/31): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  339 kB/s | 2.3 MB     00:06
-    ns01: (31/31): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 336 kB/s | 3.5 MB     00:10
+    ns01: (1/31): bind-dnssec-doc-9.16.23-40.el9_8.13.noa 195 kB/s |  46 kB     00:00
+    ns01: (2/31): bind-dnssec-utils-9.16.23-40.el9_8.13.x 301 kB/s | 114 kB     00:00
+    ns01: (3/31): bind-license-9.16.23-40.el9_8.13.noarch 168 kB/s |  14 kB     00:00
+    ns01: (4/31): bind-9.16.23-40.el9_8.13.x86_64.rpm     586 kB/s | 490 kB     00:00
+    ns01: (5/31): bind-utils-9.16.23-40.el9_8.13.x86_64.r 230 kB/s | 200 kB     00:00
+    ns01: (6/31): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 1.1 MB/s | 1.2 MB     00:01
+    ns01: (7/31): libmaxminddb-1.5.2-4.el9.x86_64.rpm     362 kB/s |  32 kB     00:00
+    ns01: (8/31): fstrm-0.6.1-3.el9.x86_64.rpm            176 kB/s |  27 kB     00:00
+    ns01: (9/31): libuv-1.42.0-2.el9_4.x86_64.rpm         512 kB/s | 146 kB     00:00
+    ns01: (10/31): policycoreutils-python-utils-3.6-5.el9 224 kB/s |  69 kB     00:00
+    ns01: (11/31): checkpolicy-3.6-1.el9.x86_64.rpm       350 kB/s | 351 kB     00:01
+    ns01: (12/31): python3-bind-9.16.23-40.el9_8.13.noarc 538 kB/s |  62 kB     00:00
+    ns01: (13/31): python3-distro-1.5.0-7.el9.noarch.rpm  449 kB/s |  36 kB     00:00
+    ns01: (14/31): python3-audit-3.1.5-8.el9.x86_64.rpm   519 kB/s |  82 kB     00:00
+    ns01: (15/31): python3-libsemanage-3.6-5.el9_6.x86_64 532 kB/s |  78 kB     00:00
+    ns01: (16/31): protobuf-c-1.3.3-13.el9.x86_64.rpm     593 kB/s |  34 kB     00:00
+    ns01: (17/31): python3-ply-3.11-14.el9.noarch.rpm     220 kB/s | 103 kB     00:00
+    ns01: (18/31): openssl-fips-provider-3.5.8-2.el9_8.x8 338 kB/s | 813 kB     00:02
+    ns01: (19/31): python3-setools-4.4.4-1.el9.x86_64.rpm 268 kB/s | 551 kB     00:02
+    ns01: (20/31): python3-setuptools-53.0.0-15.el9.noarc 539 kB/s | 831 kB     00:01
+    ns01: (21/31): python3-libselinux-3.6-3.el9.x86_64.rp 526 kB/s | 186 kB     00:00
+    ns01: (22/31): python3-policycoreutils-3.6-5.el9.noar 438 kB/s | 2.0 MB     00:04
+    ns01: (23/31): audit-3.1.5-8.el9.x86_64.rpm           519 kB/s | 253 kB     00:00
+    ns01: (24/31): libselinux-3.6-3.el9.x86_64.rpm        204 kB/s |  85 kB     00:00
+    ns01: (25/31): audit-libs-3.1.5-8.el9.x86_64.rpm      247 kB/s | 121 kB     00:00
+    ns01: (26/31): libselinux-utils-3.6-3.el9.x86_64.rpm  359 kB/s | 164 kB     00:00
+    ns01: (27/31): libsemanage-3.6-5.el9_6.x86_64.rpm     243 kB/s | 117 kB     00:00
+    ns01: (28/31): openssl-3.5.8-2.el9_8.x86_64.rpm       479 kB/s | 1.4 MB     00:03
+    ns01: (29/31): policycoreutils-3.6-5.el9.x86_64.rpm   637 kB/s | 205 kB     00:00
+    ns01: (30/31): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 440 kB/s | 3.5 MB     00:08
+    ns01: (31/31): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  349 kB/s | 2.3 MB     00:06
     ns01: --------------------------------------------------------------------------------
-    ns01: Total                                           585 kB/s |  16 MB     00:27
+    ns01: Total                                           1.0 MB/s |  16 MB     00:15
     ns01: Running transaction check
     ns01: Transaction check succeeded.
     ns01: Running transaction test
@@ -262,7 +263,7 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> ns02: Importing base box 'almalinux/9'...
 ==> ns02: Matching MAC address for NAT networking...
 ==> ns02: Checking if box 'almalinux/9' version '1.0.0' is up to date...
-==> ns02: Setting the name of the VM: dz9_ns02_1794417461047_64671
+==> ns02: Setting the name of the VM: dz9_ns02_1794421293980_3620
 ==> ns02: Fixed port collision for 22 => 2222. Now on port 2200.
 ==> ns02: Clearing any previously set network interfaces...
 ==> ns02: Preparing network interfaces based on configuration...
@@ -291,9 +292,9 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     ns02: D:/linux/Professional/36 DNS - настройка и обслуживание/dz9 => /vagrant
 ==> ns02: Running provisioner: shell...
     ns02: Running: inline script
-    ns02: AlmaLinux 9 - AppStream                         1.2 MB/s |  34 MB     00:28
-    ns02: AlmaLinux 9 - BaseOS                            1.2 MB/s |  57 MB     00:48
-    ns02: AlmaLinux 9 - Extras                             48 kB/s |  33 kB     00:00
+    ns02: AlmaLinux 9 - AppStream                         1.1 MB/s |  34 MB     00:31
+    ns02: AlmaLinux 9 - BaseOS                            1.0 MB/s |  57 MB     00:56
+    ns02: AlmaLinux 9 - Extras                             38 kB/s |  33 kB     00:00
     ns02: Dependencies resolved.
     ns02: ================================================================================
     ns02:  Package                       Arch    Version                 Repository  Size
@@ -341,39 +342,39 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     ns02:
     ns02: Total download size: 16 M
     ns02: Downloading Packages:
-    ns02: (1/31): bind-dnssec-doc-9.16.23-40.el9_8.13.noa 466 kB/s |  46 kB     00:00
-    ns02: (2/31): bind-dnssec-utils-9.16.23-40.el9_8.13.x 1.0 MB/s | 114 kB     00:00
-    ns02: (3/31): bind-license-9.16.23-40.el9_8.13.noarch 326 kB/s |  14 kB     00:00
-    ns02: (4/31): bind-utils-9.16.23-40.el9_8.13.x86_64.r 2.2 MB/s | 200 kB     00:00
-    ns02: (5/31): bind-9.16.23-40.el9_8.13.x86_64.rpm     1.0 MB/s | 490 kB     00:00
-    ns02: (6/31): fstrm-0.6.1-3.el9.x86_64.rpm             81 kB/s |  27 kB     00:00
-    ns02: (7/31): checkpolicy-3.6-1.el9.x86_64.rpm        437 kB/s | 351 kB     00:00
-    ns02: (8/31): libmaxminddb-1.5.2-4.el9.x86_64.rpm     102 kB/s |  32 kB     00:00
-    ns02: (9/31): policycoreutils-python-utils-3.6-5.el9. 544 kB/s |  69 kB     00:00
-    ns02: (10/31): python3-audit-3.1.5-8.el9.x86_64.rpm   1.6 MB/s |  82 kB     00:00
-    ns02: (11/31): libuv-1.42.0-2.el9_4.x86_64.rpm        533 kB/s | 146 kB     00:00
-    ns02: (12/31): python3-distro-1.5.0-7.el9.noarch.rpm  234 kB/s |  36 kB     00:00
-    ns02: (13/31): python3-libsemanage-3.6-5.el9_6.x86_64 562 kB/s |  78 kB     00:00
-    ns02: (14/31): bind-libs-9.16.23-40.el9_8.13.x86_64.r 709 kB/s | 1.2 MB     00:01
-    ns02: (15/31): python3-bind-9.16.23-40.el9_8.13.noarc  35 kB/s |  62 kB     00:01
-    ns02: (16/31): protobuf-c-1.3.3-13.el9.x86_64.rpm     571 kB/s |  34 kB     00:00
-    ns02: (17/31): openssl-fips-provider-3.5.8-2.el9_8.x8 485 kB/s | 813 kB     00:01
-    ns02: (18/31): python3-ply-3.11-14.el9.noarch.rpm     106 kB/s | 103 kB     00:00
-    ns02: (19/31): python3-setools-4.4.4-1.el9.x86_64.rpm 640 kB/s | 551 kB     00:00
-    ns02: (20/31): python3-policycoreutils-3.6-5.el9.noar 606 kB/s | 2.0 MB     00:03
-    ns02: (21/31): python3-libselinux-3.6-3.el9.x86_64.rp 582 kB/s | 186 kB     00:00
-    ns02: (22/31): audit-3.1.5-8.el9.x86_64.rpm           225 kB/s | 253 kB     00:01
-    ns02: (23/31): audit-libs-3.1.5-8.el9.x86_64.rpm      699 kB/s | 121 kB     00:00
-    ns02: (24/31): python3-setuptools-53.0.0-15.el9.noarc 306 kB/s | 831 kB     00:02
-    ns02: (25/31): libselinux-3.6-3.el9.x86_64.rpm        472 kB/s |  85 kB     00:00
-    ns02: (26/31): libselinux-utils-3.6-3.el9.x86_64.rpm  489 kB/s | 164 kB     00:00
-    ns02: (27/31): libsemanage-3.6-5.el9_6.x86_64.rpm     265 kB/s | 117 kB     00:00
-    ns02: (28/31): openssl-3.5.8-2.el9_8.x86_64.rpm       357 kB/s | 1.4 MB     00:04
-    ns02: (29/31): policycoreutils-3.6-5.el9.x86_64.rpm   1.1 MB/s | 205 kB     00:00
-    ns02: (30/31): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  511 kB/s | 2.3 MB     00:04
-    ns02: (31/31): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 443 kB/s | 3.5 MB     00:08
+    ns02: (1/31): bind-dnssec-utils-9.16.23-40.el9_8.13.x 542 kB/s | 114 kB     00:00
+    ns02: (2/31): bind-9.16.23-40.el9_8.13.x86_64.rpm     1.7 MB/s | 490 kB     00:00
+    ns02: (3/31): bind-license-9.16.23-40.el9_8.13.noarch 197 kB/s |  14 kB     00:00
+    ns02: (4/31): bind-dnssec-doc-9.16.23-40.el9_8.13.noa 107 kB/s |  46 kB     00:00
+    ns02: (5/31): bind-utils-9.16.23-40.el9_8.13.x86_64.r 255 kB/s | 200 kB     00:00
+    ns02: (6/31): checkpolicy-3.6-1.el9.x86_64.rpm        377 kB/s | 351 kB     00:00
+    ns02: (7/31): fstrm-0.6.1-3.el9.x86_64.rpm             80 kB/s |  27 kB     00:00
+    ns02: (8/31): libmaxminddb-1.5.2-4.el9.x86_64.rpm     191 kB/s |  32 kB     00:00
+    ns02: (9/31): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 835 kB/s | 1.2 MB     00:01
+    ns02: (10/31): libuv-1.42.0-2.el9_4.x86_64.rpm        550 kB/s | 146 kB     00:00
+    ns02: (11/31): policycoreutils-python-utils-3.6-5.el9 315 kB/s |  69 kB     00:00
+    ns02: (12/31): python3-bind-9.16.23-40.el9_8.13.noarc 719 kB/s |  62 kB     00:00
+    ns02: (13/31): python3-distro-1.5.0-7.el9.noarch.rpm  236 kB/s |  36 kB     00:00
+    ns02: (14/31): python3-audit-3.1.5-8.el9.x86_64.rpm   472 kB/s |  82 kB     00:00
+    ns02: (15/31): python3-libsemanage-3.6-5.el9_6.x86_64 454 kB/s |  78 kB     00:00
+    ns02: (16/31): protobuf-c-1.3.3-13.el9.x86_64.rpm     433 kB/s |  34 kB     00:00
+    ns02: (17/31): python3-ply-3.11-14.el9.noarch.rpm     593 kB/s | 103 kB     00:00
+    ns02: (18/31): python3-setools-4.4.4-1.el9.x86_64.rpm 381 kB/s | 551 kB     00:01
+    ns02: (19/31): openssl-fips-provider-3.5.8-2.el9_8.x8 419 kB/s | 813 kB     00:01
+    ns02: (20/31): python3-setuptools-53.0.0-15.el9.noarc 355 kB/s | 831 kB     00:02
+    ns02: (21/31): python3-policycoreutils-3.6-5.el9.noar 437 kB/s | 2.0 MB     00:04
+    ns02: (22/31): python3-libselinux-3.6-3.el9.x86_64.rp 279 kB/s | 186 kB     00:00
+    ns02: (23/31): audit-libs-3.1.5-8.el9.x86_64.rpm      360 kB/s | 121 kB     00:00
+    ns02: (24/31): libselinux-3.6-3.el9.x86_64.rpm        410 kB/s |  85 kB     00:00
+    ns02: (25/31): audit-3.1.5-8.el9.x86_64.rpm           447 kB/s | 253 kB     00:00
+    ns02: (26/31): libsemanage-3.6-5.el9_6.x86_64.rpm     483 kB/s | 117 kB     00:00
+    ns02: (27/31): libselinux-utils-3.6-3.el9.x86_64.rpm  183 kB/s | 164 kB     00:00
+    ns02: (28/31): openssl-3.5.8-2.el9_8.x86_64.rpm       664 kB/s | 1.4 MB     00:02
+    ns02: (29/31): policycoreutils-3.6-5.el9.x86_64.rpm   383 kB/s | 205 kB     00:00
+    ns02: (30/31): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 404 kB/s | 3.5 MB     00:08
+    ns02: (31/31): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  420 kB/s | 2.3 MB     00:05
     ns02: --------------------------------------------------------------------------------
-    ns02: Total                                           1.1 MB/s |  16 MB     00:14
+    ns02: Total                                           1.0 MB/s |  16 MB     00:15
     ns02: Running transaction check
     ns02: Transaction check succeeded.
     ns02: Running transaction test
@@ -507,7 +508,7 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> client1: Importing base box 'almalinux/9'...
 ==> client1: Matching MAC address for NAT networking...
 ==> client1: Checking if box 'almalinux/9' version '1.0.0' is up to date...
-==> client1: Setting the name of the VM: dz9_client1_1794417640442_97087
+==> client1: Setting the name of the VM: dz9_client1_1794421485829_56422
 ==> client1: Fixed port collision for 22 => 2222. Now on port 2201.
 ==> client1: Clearing any previously set network interfaces...
 ==> client1: Preparing network interfaces based on configuration...
@@ -536,9 +537,9 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client1: D:/linux/Professional/36 DNS - настройка и обслуживание/dz9 => /vagrant
 ==> client1: Running provisioner: shell...
     client1: Running: inline script
-    client1: AlmaLinux 9 - AppStream                         973 kB/s |  34 MB     00:35
+    client1: AlmaLinux 9 - AppStream                         1.0 MB/s |  34 MB     00:34
     client1: AlmaLinux 9 - BaseOS                            1.0 MB/s |  57 MB     00:56
-    client1: AlmaLinux 9 - Extras                             56 kB/s |  33 kB     00:00
+    client1: AlmaLinux 9 - Extras                             38 kB/s |  33 kB     00:00
     client1: Dependencies resolved.
     client1: ================================================================================
     client1:  Package                 Arch     Version                     Repository   Size
@@ -565,19 +566,19 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client1:
     client1: Total download size: 9.7 M
     client1: Downloading Packages:
-    client1: (1/11): bind-license-9.16.23-40.el9_8.13.noarch 192 kB/s |  14 kB     00:00
-    client1: (2/11): bind-utils-9.16.23-40.el9_8.13.x86_64.r 2.2 MB/s | 200 kB     00:00
-    client1: (3/11): fstrm-0.6.1-3.el9.x86_64.rpm            840 kB/s |  27 kB     00:00
-    client1: (4/11): libmaxminddb-1.5.2-4.el9.x86_64.rpm     750 kB/s |  32 kB     00:00
-    client1: (5/11): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 1.4 MB/s | 1.2 MB     00:00
-    client1: (6/11): protobuf-c-1.3.3-13.el9.x86_64.rpm      468 kB/s |  34 kB     00:00
-    client1: (7/11): libuv-1.42.0-2.el9_4.x86_64.rpm          80 kB/s | 146 kB     00:01
-    client1: (8/11): openssl-fips-provider-3.5.8-2.el9_8.x86 213 kB/s | 813 kB     00:03
-    client1: (9/11): openssl-devel-3.5.8-2.el9_8.x86_64.rpm  645 kB/s | 3.5 MB     00:05
-    client1: (10/11): openssl-3.5.8-2.el9_8.x86_64.rpm       304 kB/s | 1.4 MB     00:04
-    client1: (11/11): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  667 kB/s | 2.3 MB     00:03
+    client1: (1/11): bind-license-9.16.23-40.el9_8.13.noarch  98 kB/s |  14 kB     00:00
+    client1: (2/11): fstrm-0.6.1-3.el9.x86_64.rpm            1.2 MB/s |  27 kB     00:00
+    client1: (3/11): libmaxminddb-1.5.2-4.el9.x86_64.rpm     352 kB/s |  32 kB     00:00
+    client1: (4/11): libuv-1.42.0-2.el9_4.x86_64.rpm         1.3 MB/s | 146 kB     00:00
+    client1: (5/11): bind-utils-9.16.23-40.el9_8.13.x86_64.r 378 kB/s | 200 kB     00:00
+    client1: (6/11): protobuf-c-1.3.3-13.el9.x86_64.rpm      495 kB/s |  34 kB     00:00
+    client1: (7/11): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 853 kB/s | 1.2 MB     00:01
+    client1: (8/11): openssl-fips-provider-3.5.8-2.el9_8.x86 470 kB/s | 813 kB     00:01
+    client1: (9/11): openssl-3.5.8-2.el9_8.x86_64.rpm        470 kB/s | 1.4 MB     00:03
+    client1: (10/11): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  608 kB/s | 2.3 MB     00:03
+    client1: (11/11): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 363 kB/s | 3.5 MB     00:09
     client1: --------------------------------------------------------------------------------
-    client1: Total                                           1.1 MB/s | 9.7 MB     00:08
+    client1: Total                                           803 kB/s | 9.7 MB     00:12
     client1: Running transaction check
     client1: Transaction check succeeded.
     client1: Running transaction test
@@ -631,7 +632,7 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> client2: Importing base box 'almalinux/9'...
 ==> client2: Matching MAC address for NAT networking...
 ==> client2: Checking if box 'almalinux/9' version '1.0.0' is up to date...
-==> client2: Setting the name of the VM: dz9_client2_1794417823037_99788
+==> client2: Setting the name of the VM: dz9_client2_1794421670175_16774
 ==> client2: Fixed port collision for 22 => 2222. Now on port 2202.
 ==> client2: Clearing any previously set network interfaces...
 ==> client2: Preparing network interfaces based on configuration...
@@ -660,9 +661,9 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client2: D:/linux/Professional/36 DNS - настройка и обслуживание/dz9 => /vagrant
 ==> client2: Running provisioner: shell...
     client2: Running: inline script
-    client2: AlmaLinux 9 - AppStream                         1.0 MB/s |  34 MB     00:33
-    client2: AlmaLinux 9 - BaseOS                            1.1 MB/s |  57 MB     00:53
-    client2: AlmaLinux 9 - Extras                             28 kB/s |  33 kB     00:01
+    client2: AlmaLinux 9 - AppStream                         859 kB/s |  34 MB     00:40
+    client2: AlmaLinux 9 - BaseOS                            853 kB/s |  57 MB     01:07
+    client2: AlmaLinux 9 - Extras                             43 kB/s |  33 kB     00:00
     client2: Dependencies resolved.
     client2: ================================================================================
     client2:  Package                 Arch     Version                     Repository   Size
@@ -689,17 +690,17 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client2:
     client2: Total download size: 9.7 M
     client2: Downloading Packages:
-    client2: (1/11): bind-license-9.16.23-40.el9_8.13.noarch 137 kB/s |  14 kB     00:00
-    client2: (2/11): bind-utils-9.16.23-40.el9_8.13.x86_64.r 1.5 MB/s | 200 kB     00:00
-    client2: (3/11): libmaxminddb-1.5.2-4.el9.x86_64.rpm     1.3 MB/s |  32 kB     00:00
-    client2: (4/11): fstrm-0.6.1-3.el9.x86_64.rpm             69 kB/s |  27 kB     00:00
-    client2: (5/11): libuv-1.42.0-2.el9_4.x86_64.rpm         421 kB/s | 146 kB     00:00
-    client2: (6/11): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 1.6 MB/s | 1.2 MB     00:00
-    client2: (7/11): protobuf-c-1.3.3-13.el9.x86_64.rpm      108 kB/s |  34 kB     00:00
-    client2: (8/11): openssl-fips-provider-3.5.8-2.el9_8.x86 470 kB/s | 813 kB     00:01
-    client2: (9/11): openssl-3.5.8-2.el9_8.x86_64.rpm        268 kB/s | 1.4 MB     00:05
-    client2: (10/11): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 613 kB/s | 3.5 MB     00:05
-    client2: (11/11): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  394 kB/s | 2.3 MB     00:05
+    client2: (1/11): bind-license-9.16.23-40.el9_8.13.noarch  68 kB/s |  14 kB     00:00
+    client2: (2/11): fstrm-0.6.1-3.el9.x86_64.rpm            488 kB/s |  27 kB     00:00
+    client2: (3/11): libmaxminddb-1.5.2-4.el9.x86_64.rpm     560 kB/s |  32 kB     00:00
+    client2: (4/11): bind-utils-9.16.23-40.el9_8.13.x86_64.r 486 kB/s | 200 kB     00:00
+    client2: (5/11): libuv-1.42.0-2.el9_4.x86_64.rpm         1.1 MB/s | 146 kB     00:00
+    client2: (6/11): protobuf-c-1.3.3-13.el9.x86_64.rpm      485 kB/s |  34 kB     00:00
+    client2: (7/11): openssl-fips-provider-3.5.8-2.el9_8.x86 463 kB/s | 813 kB     00:01
+    client2: (8/11): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 463 kB/s | 1.2 MB     00:02
+    client2: (9/11): openssl-3.5.8-2.el9_8.x86_64.rpm        608 kB/s | 1.4 MB     00:02
+    client2: (10/11): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 489 kB/s | 3.5 MB     00:07
+    client2: (11/11): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  420 kB/s | 2.3 MB     00:05
     client2: --------------------------------------------------------------------------------
     client2: Total                                           1.0 MB/s | 9.7 MB     00:09
     client2: Running transaction check
@@ -725,8 +726,15 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client2:   Running scriptlet: openssl-libs-1:3.2.2-6.el9_5.x86_64                  14/14
     client2:   Verifying        : bind-libs-32:9.16.23-40.el9_8.13.x86_64               1/14
     client2:   Verifying        : bind-license-32:9.16.23-40.el9_8.13.noarch            2/14
-           10/14
-           11/14
+    client2:   Verifying        : bind-utils-32:9.16.23-40.el9_8.13.x86_64              3/14
+    client2:   Verifying        : fstrm-0.6.1-3.el9.x86_64                              4/14
+    client2:   Verifying        : libmaxminddb-1.5.2-4.el9.x86_64                       5/14
+    client2:   Verifying        : libuv-1:1.42.0-2.el9_4.x86_64                         6/14
+    client2:   Verifying        : openssl-fips-provider-1:3.5.8-2.el9_8.x86_64          7/14
+    client2:   Verifying        : protobuf-c-1.3.3-13.el9.x86_64                        8/14
+    client2:   Verifying        : openssl-devel-1:3.5.8-2.el9_8.x86_64                  9/14
+    client2:   Verifying        : openssl-devel-1:3.2.2-6.el9_5.x86_64                 10/14
+    client2:   Verifying        : openssl-1:3.5.8-2.el9_8.x86_64                       11/14
     client2:   Verifying        : openssl-1:3.2.2-6.el9_5.x86_64                       12/14
     client2:   Verifying        : openssl-libs-1:3.5.8-2.el9_8.x86_64                  13/14
     client2:   Verifying        : openssl-libs-1:3.2.2-6.el9_5.x86_64                  14/14
@@ -745,743 +753,6 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client2:   protobuf-c-1.3.3-13.el9.x86_64
     client2:
     client2: Complete!
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9> vagrant ssh ns01
-[vagrant@ns01 ~]$ sudo named-checkconf
-[vagrant@ns01 ~]$ sudo named-checkzone dns.lab /etc/named/named.dns.lab
-zone dns.lab/IN: loaded serial 2711201407
-OK
-[vagrant@ns01 ~]$ sudo named-checkzone newdns.lab /etc/named/named.newdns.lab
-zone newdns.lab/IN: loaded serial 2711201407
-OK
-[vagrant@ns01 ~]$ sudo rndc status
-version: BIND 9.16.23-RH (Extended Support Version) <id:fde3b1f>
-running on ns01: Linux x86_64 5.14.0-503.15.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Nov 28 07:25:19 EST 2024
-boot time: Wed, 11 Nov 2026 17:17:34 GMT
-last configured: Wed, 11 Nov 2026 17:17:34 GMT
-configuration file: /etc/named.conf
-CPUs found: 2
-worker threads: 2
-UDP listeners per interface: 2
-number of zones: 314 (291 automatic)
-debug level: 0
-xfers running: 0
-xfers deferred: 0
-soa queries in progress: 0
-query logging is OFF
-recursive clients: 0/900/1000
-tcp clients: 0/150
-TCP high-water: 2
-server is up and running
-[vagrant@ns01 ~]$ sudo ss -tulpn | grep named
-udp   UNCONN 0      0      192.168.50.10:53        0.0.0.0:*    users:(("named",pid=6036,fd=32))
-udp   UNCONN 0      0      192.168.50.10:53        0.0.0.0:*    users:(("named",pid=6036,fd=33))
-udp   UNCONN 0      0              [::1]:53           [::]:*    users:(("named",pid=6036,fd=39))
-udp   UNCONN 0      0              [::1]:53           [::]:*    users:(("named",pid=6036,fd=38))
-tcp   LISTEN 0      4096       127.0.0.1:953       0.0.0.0:*    users:(("named",pid=6036,fd=31))
-tcp   LISTEN 0      10     192.168.50.10:53        0.0.0.0:*    users:(("named",pid=6036,fd=34))
-tcp   LISTEN 0      10     192.168.50.10:53        0.0.0.0:*    users:(("named",pid=6036,fd=35))
-tcp   LISTEN 0      10             [::1]:53           [::]:*    users:(("named",pid=6036,fd=40))
-tcp   LISTEN 0      10             [::1]:53           [::]:*    users:(("named",pid=6036,fd=41))
-tcp   LISTEN 0      4096           [::1]:953          [::]:*    users:(("named",pid=6036,fd=42))
-[vagrant@ns01 ~]$ dig @localhost web1.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @localhost web1.dns.lab
-; (2 servers found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 7862
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 5548b8e6b5d76845010000006af4a93fb7a6f335d1d4e84c (good)
-;; QUESTION SECTION:
-;web1.dns.lab.                  IN      A
-
-;; ANSWER SECTION:
-web1.dns.lab.           3600    IN      A       192.168.50.15
-
-;; Query time: 1 msec
-;; SERVER: ::1#53(::1)
-;; WHEN: Wed Nov 11 17:43:27 UTC 2026
-;; MSG SIZE  rcvd: 85
-
-[vagrant@ns01 ~]$ dig @localhost web2.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @localhost web2.dns.lab
-; (2 servers found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 57709
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-[vagrant@ns01 ~]$ dig @localhost www.newdns.lab
-; <<>> DiG 9.16.23-RH <<>> @localhost www.newdns.lab
-; (2 servers found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 23699
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 8e0a309a84337cd6010000006af4a9520202eadc62a618d8 (good)
-;; QUESTION SECTION:
-;www.newdns.lab.                        IN      A
-
-;; ANSWER SECTION:
-www.newdns.lab.         3600    IN      A       192.168.50.15
-www.newdns.lab.         3600    IN      A       192.168.50.16
-
-;; Query time: 3 msec
-;; SERVER: ::1#53(::1)
-;; WHEN: Wed Nov 11 17:43:46 UTC 2026
-;; MSG SIZE  rcvd: 103
-
-[vagrant@ns01 ~]$ exit
-logout
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9> vagrant ssh ns02
-[vagrant@ns02 ~]$ sudo named-checkconf
-[vagrant@ns02 ~]$ sudo ls -l /var/named/slaves/
-total 12
--rw-r--r--. 1 named named 284 Nov 11 17:20 named.dns.lab.client1
--rw-r--r--. 1 named named 324 Nov 11 17:20 named.dns.lab.default
--rw-r--r--. 1 named named 316 Nov 11 17:20 named.newdns.lab.default
-[vagrant@ns02 ~]$ sudo named-checkzone dns.lab /var/named/slaves/named.dns.lab.default
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: isc_lex_gettoken() failed: unbalanced parentheses
-dns_master_load: /var/named/slaves/named.dns.lab.default:2: unbalanced parentheses
-/var/named/slaves/named.dns.lab.default: file does not end with newline
-zone dns.lab/IN: loading from master file /var/named/slaves/named.dns.lab.default failed: syntax error
-zone dns.lab/IN: not loaded due to errors.
-[vagrant@ns02 ~]$ sudo named-checkzone newdns.lab /var/named/slaves/named.newdns.lab.default
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:1: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-dns_master_load: /var/named/slaves/named.newdns.lab.default:2: syntax error
-/var/named/slaves/named.newdns.lab.default: file does not end with newline
-zone newdns.lab/IN: loading from master file /var/named/slaves/named.newdns.lab.default failed: syntax error
-zone newdns.lab/IN: not loaded due to errors.
-[vagrant@ns02 ~]$ sudo named-checkzone dns.lab /var/named/slaves/named.dns.lab.client1
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:1: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: syntax error
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: isc_lex_gettoken() failed: unbalanced parentheses
-dns_master_load: /var/named/slaves/named.dns.lab.client1:2: unbalanced parentheses
-/var/named/slaves/named.dns.lab.client1: file does not end with newline
-zone dns.lab/IN: loading from master file /var/named/slaves/named.dns.lab.client1 failed: syntax error
-zone dns.lab/IN: not loaded due to errors.
-[vagrant@ns02 ~]$ dig @localhost web1.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @localhost web1.dns.lab
-; (2 servers found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 33427
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: e2f2da6f38ac9219010000006af4aa88a974489e4780d9c2 (good)
-;; QUESTION SECTION:
-;web1.dns.lab.                  IN      A
-
-;; ANSWER SECTION:
-web1.dns.lab.           3600    IN      A       192.168.50.15
-
-;; Query time: 2 msec
-;; SERVER: ::1#53(::1)
-;; WHEN: Wed Nov 11 17:48:56 UTC 2026
-;; MSG SIZE  rcvd: 85
-
-[vagrant@ns02 ~]$ dig @localhost web2.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @localhost web2.dns.lab
-; (2 servers found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 31121
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: b4931be505f7ff1e010000006af4aa8e26ed45c579fc93af (good)
-;; QUESTION SECTION:
-;web2.dns.lab.                  IN      A
-
-;; ANSWER SECTION:
-web2.dns.lab.           3600    IN      A       192.168.50.16
-
-;; Query time: 1 msec
-;; SERVER: ::1#53(::1)
-;; WHEN: Wed Nov 11 17:49:02 UTC 2026
-;; MSG SIZE  rcvd: 85
-
-[vagrant@ns02 ~]$ dig @localhost www.newdns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @localhost www.newdns.lab
-; (2 servers found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 44692
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: a41cad5a7e3eca8d010000006af4aa9b8a28402dbbda2958 (good)
-;; QUESTION SECTION:
-;www.newdns.lab.                        IN      A
-
-;; ANSWER SECTION:
-www.newdns.lab.         3600    IN      A       192.168.50.16
-www.newdns.lab.         3600    IN      A       192.168.50.15
-
-;; Query time: 1 msec
-;; SERVER: ::1#53(::1)
-;; WHEN: Wed Nov 11 17:49:15 UTC 2026
-;; MSG SIZE  rcvd: 103
-
-[vagrant@ns02 ~]$ sudo rndc status
-version: BIND 9.16.23-RH (Extended Support Version) <id:fde3b1f>
-running on ns02: Linux x86_64 5.14.0-503.15.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Nov 28 07:25:19 EST 2024
-boot time: Wed, 11 Nov 2026 17:20:34 GMT
-last configured: Wed, 11 Nov 2026 17:20:34 GMT
-configuration file: /etc/named.conf
-CPUs found: 2
-worker threads: 2
-UDP listeners per interface: 2
-number of zones: 518 (485 automatic)
-debug level: 0
-xfers running: 0
-xfers deferred: 0
-soa queries in progress: 0
-ed",pid=5682,fd=33))
-ed",pid=5682,fd=32))
-udp   UNCONN 0      0              [::1]:53           [::]:*    users:(("named",pid=5682,fd=38))
-udp   UNCONN 0      0              [::1]:53           [::]:*    users:(("named",pid=5682,fd=39))
-tcp   LISTEN 0      4096       127.0.0.1:953       0.0.0.0:*    users:(("named",pid=5682,fd=31))
-tcp   LISTEN 0      10     192.168.50.11:53        0.0.0.0:*    users:(("named",pid=5682,fd=36))
-tcp   LISTEN 0      10     192.168.50.11:53        0.0.0.0:*    users:(("named",pid=5682,fd=34))
-tcp   LISTEN 0      4096           [::1]:953          [::]:*    users:(("named",pid=5682,fd=42))
-tcp   LISTEN 0      10             [::1]:53           [::]:*    users:(("named",pid=5682,fd=40))
-tcp   LISTEN 0      10             [::1]:53           [::]:*    users:(("named",pid=5682,fd=41))
-[vagrant@ns02 ~]$ sudo named-checkzone -f raw dns.lab /var/named/slaves/named.dns.lab.default
-zone dns.lab/IN: loaded serial 2711201407
-OK
-[vagrant@ns02 ~]$ sudo named-checkzone -f raw newdns.lab /var/named/slaves/named.newdns.lab.default
-zone newdns.lab/IN: loaded serial 2711201407
-OK
-[vagrant@ns02 ~]$ sudo named-checkzone -f raw dns.lab /var/named/slaves/name
-d.dns.lab.client1
-zone dns.lab/IN: loaded serial 2711201407
-OK
-[vagrant@ns02 ~]$ exit
-logout
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9> vagrant ssh client1
-[vagrant@client1 ~]$ dig @192.168.50.10 web1.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web1.dns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 13934
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 48dbbc63b42cfb45010000006af4ab7eeb5daeffb0648670 (good)
-;; QUESTION SECTION:
-;web1.dns.lab.                  IN      A
-
-;; ANSWER SECTION:
-web1.dns.lab.           3600    IN      A       192.168.50.15
-
-;; Query time: 6 msec
-;; SERVER: 192.168.50.10#53(192.168.50.10)
-;; WHEN: Wed Nov 11 17:53:02 UTC 2026
-;; MSG SIZE  rcvd: 85
-
-[vagrant@client1 ~]$ dig @192.168.50.11 web1.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web1.dns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 44360
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 01a89e747a782430010000006af4ab83f8bd305542ca17c9 (good)
-;; QUESTION SECTION:
-;web1.dns.lab.                  IN      A
-
-;; ANSWER SECTION:
-web1.dns.lab.           3600    IN      A       192.168.50.15
-
-;; Query time: 2 msec
-;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Wed Nov 11 17:53:07 UTC 2026
-;; MSG SIZE  rcvd: 85
-
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$
-[vagrant@client1 ~]$ dig @192.168.50.10 web2.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 54624
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: ed24c236e2237feb010000006af4ab8f8910e91916778d00 (good)
-;; QUESTION SECTION:
-;web2.dns.lab.                  IN      A
-
-;; AUTHORITY SECTION:
-dns.lab.                600     IN      SOA     ns01.dns.lab. root.dns.lab. 2711201407 3600 600 86400 600
-
-;; Query time: 3 msec
-;; SERVER: 192.168.50.10#53(192.168.50.10)
-;; WHEN: Wed Nov 11 17:53:19 UTC 2026
-;; MSG SIZE  rcvd: 115
-
-[vagrant@client1 ~]$ dig @192.168.50.11 web2.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web2.dns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 23559
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: b9d22fbbb86945f1010000006af4ab95a2aacfdc0174bba1 (good)
-;; QUESTION SECTION:
-;web2.dns.lab.                  IN      A
-
-;; AUTHORITY SECTION:
-dns.lab.                600     IN      SOA     ns01.dns.lab. root.dns.lab. 2711201407 3600 600 86400 600
-
-;; Query time: 1 msec
-;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Wed Nov 11 17:53:25 UTC 2026
-;; MSG SIZE  rcvd: 115
-
-[vagrant@client1 ~]$ dig @192.168.50.10 www.newdns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 31427
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 www.newdns.lab
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 26485
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: ea534017e8331a04010000006af4aba89656ecd0011203fc (good)
-;; QUESTION SECTION:
-;www.newdns.lab.                        IN      A
-
-;; ANSWER SECTION:
-www.newdns.lab.         3600    IN      A       192.168.50.16
-www.newdns.lab.         3600    IN      A       192.168.50.15
-
-;; Query time: 2 msec
-;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Wed Nov 11 17:53:44 UTC 2026
-;; MSG SIZE  rcvd: 103
-
-[vagrant@client1 ~]$ exit
-logout
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
 
 #############################
@@ -1539,141 +810,9 @@ PS D:\linux\Professional\36 DNS - настройка и обслуживание
 ################################
 
 # проверка что client2 — видит web1 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NOERROR
-[vagrant@client2 ~]$ dig @192.168.50.10 web1.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web1.dns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 38826
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: f42c9f77126ccdf5010000006af4abca39de73d08ce06980 (good)
-;; QUESTION SECTION:
-;web1.dns.lab.                  IN      A
-
-;; ANSWER SECTION:
-web1.dns.lab.           3600    IN      A       192.168.50.15
-
-;; Query time: 3 msec
-;; SERVER: 192.168.50.10#53(192.168.50.10)
-;; WHEN: Wed Nov 11 17:54:18 UTC 2026
-;; MSG SIZE  rcvd: 85
-
-[vagrant@client2 ~]$ dig @192.168.50.11 web1.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web1.dns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 33277
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: dad817c2fa6c2507010000006af4abcf670d4a511933ce29 (good)
-;; QUESTION SECTION:
-;web1.dns.lab.                  IN      A
-
-;; ANSWER SECTION:
-web1.dns.lab.           3600    IN      A       192.168.50.15
-
-;; Query time: 3 msec
-;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Wed Nov 11 17:54:23 UTC 2026
-;; MSG SIZE  rcvd: 85
-
 
 
 # проверка что client2 — видит web2 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NOERROR
-[vagrant@client2 ~]$ dig @192.168.50.10 web2.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 62526
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 2ecb18c01559e856010000006af4abd4ab5b90e74f5cc9e5 (good)
-;; QUESTION SECTION:
-;web2.dns.lab.                  IN      A
-
-;; ANSWER SECTION:
-web2.dns.lab.           3600    IN      A       192.168.50.16
-
-;; Query time: 4 msec
-;; SERVER: 192.168.50.10#53(192.168.50.10)
-;; WHEN: Wed Nov 11 17:54:28 UTC 2026
-;; MSG SIZE  rcvd: 85
-
-[vagrant@client2 ~]$ dig @192.168.50.11 web2.dns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web2.dns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 30506
-;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 95b3c56690771039010000006af4abd9a99633c6ec687b2c (good)
-;; QUESTION SECTION:
-;web2.dns.lab.                  IN      A
-
-;; ANSWER SECTION:
-web2.dns.lab.           3600    IN      A       192.168.50.16
-
-;; Query time: 2 msec
-;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Wed Nov 11 17:54:32 UTC 2026
-;; MSG SIZE  rcvd: 85
 
 
 # проверка что client2 — не видит www из зоны newdns.lab с мастера и со слэйва, об этом говорит статус NXDOMAIN
-[vagrant@client2 ~]$ dig @192.168.50.10 www.newdns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: SERVFAIL, id: 61228
-;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 26ae0867c6c5ac97010000006af4abf13181944a26568c4e (good)
-;; QUESTION SECTION:
-;www.newdns.lab.                        IN      A
-
-;; Query time: 4692 msec
-;; SERVER: 192.168.50.10#53(192.168.50.10)
-;; WHEN: Wed Nov 11 17:54:57 UTC 2026
-;; MSG SIZE  rcvd: 71
-
-[vagrant@client2 ~]$ dig @192.168.50.11 www.newdns.lab
-
-; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 www.newdns.lab
-; (1 server found)
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: SERVFAIL, id: 32992
-;; flags: qr rd ra; QUERY: 1, ANSWER: 0, AUTHORITY: 0, ADDITIONAL: 1
-
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 1232
-; COOKIE: 0009bf438e7d544a010000006af4ac05b1aea7016b108a59 (good)
-;; QUESTION SECTION:
-;www.newdns.lab.                        IN      A
-
-;; Query time: 2740 msec
-;; SERVER: 192.168.50.11#53(192.168.50.11)
-;; WHEN: Wed Nov 11 17:55:17 UTC 2026
-;; MSG SIZE  rcvd: 71
-
-[vagrant@client2 ~]$
