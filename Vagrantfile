@@ -35,6 +35,7 @@ Vagrant.configure("2") do |config|
         sudo cp /vagrant/provisioning/named.dns.lab /etc/named/named.dns.lab
         sudo cp /vagrant/provisioning/named.dns.lab.client /etc/named/named.dns.lab.client
         sudo cp /vagrant/provisioning/named.newdns.lab /etc/named/named.newdns.lab
+        sudo cp /vagrant/provisioning/empty.newdns.lab /etc/named/empty.newdns.lab
         sudo cp /vagrant/provisioning/master-named.conf /etc/named.conf
 
         # проверки конфига и зоны
