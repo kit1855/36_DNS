@@ -1,0 +1,11 @@
+$TTL 3600
+$ORIGIN newdns.lab.
+@   IN  SOA ns01.newdns.lab. root.newdns.lab. (
+        2711201407 ; serial
+        3600       ; refresh
+        600        ; retry
+        86400      ; expire
+        600        ; minimum
+    )
+    IN  NS  ns01.newdns.lab.
+    IN  NS  ns02.newdns.lab.
