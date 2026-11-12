@@ -7,3 +7,8 @@ key "client1-transfer-key" {
         algorithm hmac-sha256;
         secret "Mrx5C8oBL1IcTD3pZ2q8EefiwxK/4eEd7fbDtitENzU=";
 };
+
+key "empty-transfer-key" {
+        algorithm hmac-sha256;
+        secret "iAnVzdT7PS8T82abalHFAPPXYTLbqaCt1D1fnpyP21k=";
+};
