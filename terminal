@@ -4,7 +4,8 @@
 ##                         ##
 #############################
 
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9> vagrant up
+PS D:\> cd '.\linux\Professional\36 DNS - настройка и обслуживание\dz10\'
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10> vagrant up
 Bringing machine 'ns01' up with 'virtualbox' provider...
 Bringing machine 'ns02' up with 'virtualbox' provider...
 Bringing machine 'client1' up with 'virtualbox' provider...
@@ -12,7 +13,7 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> ns01: Importing base box 'almalinux/9'...
 ==> ns01: Matching MAC address for NAT networking...
 ==> ns01: Checking if box 'almalinux/9' version '1.0.0' is up to date...
-==> ns01: Setting the name of the VM: dz9_ns01_1794421039432_3348
+==> ns01: Setting the name of the VM: dz10_ns01_1794588483572_14697
 ==> ns01: Clearing any previously set network interfaces...
 ==> ns01: Preparing network interfaces based on configuration...
     ns01: Adapter 1: nat
@@ -37,13 +38,12 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> ns01: Setting hostname...
 ==> ns01: Configuring and enabling network interfaces...
 ==> ns01: Mounting shared folders...
-    ns01: D:/linux/Professional/36 DNS - настройка и обслуживание/dz9 => /vagrant
+    ns01: D:/linux/Professional/36 DNS - настройка и обслуживание/dz10 => /vagrant
 ==> ns01: Running provisioner: shell...
     ns01: Running: inline script
-    ns01: AlmaLinux 9 - AppStream                         812 kB/s |  34 MB     00:42
-    ns01: AlmaLinux 9 - BaseOS                            542 kB/s |  57 MB     01:46
-    ns01: AlmaLinux 9 - Extras                             34 kB/s |  33 kB     00:00
-    ns01: Last metadata expiration check: 0:00:01 ago on Wed 11 Nov 2026 06:20:57 PM UTC.
+    ns01: AlmaLinux 9 - AppStream                         1.2 MB/s |  34 MB     00:28
+    ns01: AlmaLinux 9 - BaseOS                            1.2 MB/s |  57 MB     00:47
+    ns01: AlmaLinux 9 - Extras                             61 kB/s |  33 kB     00:00
     ns01: Dependencies resolved.
     ns01: ================================================================================
     ns01:  Package                       Arch    Version                 Repository  Size
@@ -91,37 +91,37 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     ns01:
     ns01: Total download size: 16 M
     ns01: Downloading Packages:
-    ns01: (1/31): bind-dnssec-doc-9.16.23-40.el9_8.13.noa 195 kB/s |  46 kB     00:00
-    ns01: (2/31): bind-dnssec-utils-9.16.23-40.el9_8.13.x 301 kB/s | 114 kB     00:00
-    ns01: (3/31): bind-license-9.16.23-40.el9_8.13.noarch 168 kB/s |  14 kB     00:00
-    ns01: (4/31): bind-9.16.23-40.el9_8.13.x86_64.rpm     586 kB/s | 490 kB     00:00
-    ns01: (5/31): bind-utils-9.16.23-40.el9_8.13.x86_64.r 230 kB/s | 200 kB     00:00
-    ns01: (6/31): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 1.1 MB/s | 1.2 MB     00:01
-    ns01: (7/31): libmaxminddb-1.5.2-4.el9.x86_64.rpm     362 kB/s |  32 kB     00:00
-    ns01: (8/31): fstrm-0.6.1-3.el9.x86_64.rpm            176 kB/s |  27 kB     00:00
-    ns01: (9/31): libuv-1.42.0-2.el9_4.x86_64.rpm         512 kB/s | 146 kB     00:00
-    ns01: (10/31): policycoreutils-python-utils-3.6-5.el9 224 kB/s |  69 kB     00:00
-    ns01: (11/31): checkpolicy-3.6-1.el9.x86_64.rpm       350 kB/s | 351 kB     00:01
-    ns01: (12/31): python3-bind-9.16.23-40.el9_8.13.noarc 538 kB/s |  62 kB     00:00
-    ns01: (13/31): python3-distro-1.5.0-7.el9.noarch.rpm  449 kB/s |  36 kB     00:00
-    ns01: (14/31): python3-audit-3.1.5-8.el9.x86_64.rpm   519 kB/s |  82 kB     00:00
-    ns01: (15/31): python3-libsemanage-3.6-5.el9_6.x86_64 532 kB/s |  78 kB     00:00
-    ns01: (16/31): protobuf-c-1.3.3-13.el9.x86_64.rpm     593 kB/s |  34 kB     00:00
-    ns01: (17/31): python3-ply-3.11-14.el9.noarch.rpm     220 kB/s | 103 kB     00:00
-    ns01: (18/31): openssl-fips-provider-3.5.8-2.el9_8.x8 338 kB/s | 813 kB     00:02
-    ns01: (19/31): python3-setools-4.4.4-1.el9.x86_64.rpm 268 kB/s | 551 kB     00:02
-    ns01: (20/31): python3-setuptools-53.0.0-15.el9.noarc 539 kB/s | 831 kB     00:01
-    ns01: (21/31): python3-libselinux-3.6-3.el9.x86_64.rp 526 kB/s | 186 kB     00:00
-    ns01: (22/31): python3-policycoreutils-3.6-5.el9.noar 438 kB/s | 2.0 MB     00:04
-    ns01: (23/31): audit-3.1.5-8.el9.x86_64.rpm           519 kB/s | 253 kB     00:00
-    ns01: (24/31): libselinux-3.6-3.el9.x86_64.rpm        204 kB/s |  85 kB     00:00
-    ns01: (25/31): audit-libs-3.1.5-8.el9.x86_64.rpm      247 kB/s | 121 kB     00:00
-    ns01: (26/31): libselinux-utils-3.6-3.el9.x86_64.rpm  359 kB/s | 164 kB     00:00
-    ns01: (27/31): libsemanage-3.6-5.el9_6.x86_64.rpm     243 kB/s | 117 kB     00:00
-    ns01: (28/31): openssl-3.5.8-2.el9_8.x86_64.rpm       479 kB/s | 1.4 MB     00:03
-    ns01: (29/31): policycoreutils-3.6-5.el9.x86_64.rpm   637 kB/s | 205 kB     00:00
-    ns01: (30/31): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 440 kB/s | 3.5 MB     00:08
-    ns01: (31/31): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  349 kB/s | 2.3 MB     00:06
+    ns01: (1/31): bind-dnssec-doc-9.16.23-40.el9_8.13.noa 767 kB/s |  46 kB     00:00
+    ns01: (2/31): bind-dnssec-utils-9.16.23-40.el9_8.13.x 1.6 MB/s | 114 kB     00:00
+    ns01: (3/31): bind-license-9.16.23-40.el9_8.13.noarch 838 kB/s |  14 kB     00:00
+    ns01: (4/31): bind-utils-9.16.23-40.el9_8.13.x86_64.r 691 kB/s | 200 kB     00:00
+    ns01: (5/31): bind-9.16.23-40.el9_8.13.x86_64.rpm     1.2 MB/s | 490 kB     00:00
+    ns01: (6/31): fstrm-0.6.1-3.el9.x86_64.rpm            1.1 MB/s |  27 kB     00:00
+    ns01: (7/31): libmaxminddb-1.5.2-4.el9.x86_64.rpm     451 kB/s |  32 kB     00:00
+    ns01: (8/31): libuv-1.42.0-2.el9_4.x86_64.rpm         587 kB/s | 146 kB     00:00
+    ns01: (9/31): policycoreutils-python-utils-3.6-5.el9. 1.8 MB/s |  69 kB     00:00
+    ns01: (10/31): python3-audit-3.1.5-8.el9.x86_64.rpm   1.3 MB/s |  82 kB     00:00
+    ns01: (11/31): python3-bind-9.16.23-40.el9_8.13.noarc 1.3 MB/s |  62 kB     00:00
+    ns01: (12/31): python3-distro-1.5.0-7.el9.noarch.rpm  1.3 MB/s |  36 kB     00:00
+    ns01: (13/31): python3-libsemanage-3.6-5.el9_6.x86_64 1.1 MB/s |  78 kB     00:00
+    ns01: (14/31): checkpolicy-3.6-1.el9.x86_64.rpm       342 kB/s | 351 kB     00:01
+    ns01: (15/31): openssl-fips-provider-3.5.8-2.el9_8.x8 362 kB/s | 813 kB     00:02
+    ns01: (16/31): protobuf-c-1.3.3-13.el9.x86_64.rpm     1.0 MB/s |  34 kB     00:00
+    ns01: (17/31): python3-ply-3.11-14.el9.noarch.rpm     1.2 MB/s | 103 kB     00:00
+    ns01: (18/31): python3-policycoreutils-3.6-5.el9.noar 614 kB/s | 2.0 MB     00:03
+    ns01: (19/31): bind-libs-9.16.23-40.el9_8.13.x86_64.r 264 kB/s | 1.2 MB     00:04
+    ns01: (20/31): python3-setuptools-53.0.0-15.el9.noarc 789 kB/s | 831 kB     00:01
+    ns01: (21/31): python3-libselinux-3.6-3.el9.x86_64.rp 211 kB/s | 186 kB     00:00
+    ns01: (22/31): python3-setools-4.4.4-1.el9.x86_64.rpm 202 kB/s | 551 kB     00:02
+    ns01: (23/31): audit-libs-3.1.5-8.el9.x86_64.rpm      482 kB/s | 121 kB     00:00
+    ns01: (24/31): libselinux-3.6-3.el9.x86_64.rpm        1.1 MB/s |  85 kB     00:00
+    ns01: (25/31): audit-3.1.5-8.el9.x86_64.rpm           418 kB/s | 253 kB     00:00
+    ns01: (26/31): libsemanage-3.6-5.el9_6.x86_64.rpm     1.3 MB/s | 117 kB     00:00
+    ns01: (27/31): libselinux-utils-3.6-3.el9.x86_64.rpm  197 kB/s | 164 kB     00:00
+    ns01: (28/31): openssl-3.5.8-2.el9_8.x86_64.rpm       302 kB/s | 1.4 MB     00:04
+    ns01: (29/31): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  535 kB/s | 2.3 MB     00:04
+    ns01: (30/31): policycoreutils-3.6-5.el9.x86_64.rpm   566 kB/s | 205 kB     00:00
+    ns01: (31/31): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 461 kB/s | 3.5 MB     00:07
     ns01: --------------------------------------------------------------------------------
     ns01: Total                                           1.0 MB/s |  16 MB     00:15
     ns01: Running transaction check
@@ -263,7 +263,7 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> ns02: Importing base box 'almalinux/9'...
 ==> ns02: Matching MAC address for NAT networking...
 ==> ns02: Checking if box 'almalinux/9' version '1.0.0' is up to date...
-==> ns02: Setting the name of the VM: dz9_ns02_1794421293980_3620
+==> ns02: Setting the name of the VM: dz10_ns02_1794588661893_668
 ==> ns02: Fixed port collision for 22 => 2222. Now on port 2200.
 ==> ns02: Clearing any previously set network interfaces...
 ==> ns02: Preparing network interfaces based on configuration...
@@ -289,12 +289,12 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> ns02: Setting hostname...
 ==> ns02: Configuring and enabling network interfaces...
 ==> ns02: Mounting shared folders...
-    ns02: D:/linux/Professional/36 DNS - настройка и обслуживание/dz9 => /vagrant
+    ns02: D:/linux/Professional/36 DNS - настройка и обслуживание/dz10 => /vagrant
 ==> ns02: Running provisioner: shell...
     ns02: Running: inline script
-    ns02: AlmaLinux 9 - AppStream                         1.1 MB/s |  34 MB     00:31
-    ns02: AlmaLinux 9 - BaseOS                            1.0 MB/s |  57 MB     00:56
-    ns02: AlmaLinux 9 - Extras                             38 kB/s |  33 kB     00:00
+    ns02: AlmaLinux 9 - AppStream                         1.1 MB/s |  34 MB     00:29
+    ns02: AlmaLinux 9 - BaseOS                            1.1 MB/s |  57 MB     00:49
+    ns02: AlmaLinux 9 - Extras                             58 kB/s |  33 kB     00:00
     ns02: Dependencies resolved.
     ns02: ================================================================================
     ns02:  Package                       Arch    Version                 Repository  Size
@@ -342,39 +342,39 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     ns02:
     ns02: Total download size: 16 M
     ns02: Downloading Packages:
-    ns02: (1/31): bind-dnssec-utils-9.16.23-40.el9_8.13.x 542 kB/s | 114 kB     00:00
-    ns02: (2/31): bind-9.16.23-40.el9_8.13.x86_64.rpm     1.7 MB/s | 490 kB     00:00
-    ns02: (3/31): bind-license-9.16.23-40.el9_8.13.noarch 197 kB/s |  14 kB     00:00
-    ns02: (4/31): bind-dnssec-doc-9.16.23-40.el9_8.13.noa 107 kB/s |  46 kB     00:00
-    ns02: (5/31): bind-utils-9.16.23-40.el9_8.13.x86_64.r 255 kB/s | 200 kB     00:00
-    ns02: (6/31): checkpolicy-3.6-1.el9.x86_64.rpm        377 kB/s | 351 kB     00:00
-    ns02: (7/31): fstrm-0.6.1-3.el9.x86_64.rpm             80 kB/s |  27 kB     00:00
-    ns02: (8/31): libmaxminddb-1.5.2-4.el9.x86_64.rpm     191 kB/s |  32 kB     00:00
-    ns02: (9/31): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 835 kB/s | 1.2 MB     00:01
-    ns02: (10/31): libuv-1.42.0-2.el9_4.x86_64.rpm        550 kB/s | 146 kB     00:00
-    ns02: (11/31): policycoreutils-python-utils-3.6-5.el9 315 kB/s |  69 kB     00:00
-    ns02: (12/31): python3-bind-9.16.23-40.el9_8.13.noarc 719 kB/s |  62 kB     00:00
-    ns02: (13/31): python3-distro-1.5.0-7.el9.noarch.rpm  236 kB/s |  36 kB     00:00
-    ns02: (14/31): python3-audit-3.1.5-8.el9.x86_64.rpm   472 kB/s |  82 kB     00:00
-    ns02: (15/31): python3-libsemanage-3.6-5.el9_6.x86_64 454 kB/s |  78 kB     00:00
-    ns02: (16/31): protobuf-c-1.3.3-13.el9.x86_64.rpm     433 kB/s |  34 kB     00:00
-    ns02: (17/31): python3-ply-3.11-14.el9.noarch.rpm     593 kB/s | 103 kB     00:00
-    ns02: (18/31): python3-setools-4.4.4-1.el9.x86_64.rpm 381 kB/s | 551 kB     00:01
-    ns02: (19/31): openssl-fips-provider-3.5.8-2.el9_8.x8 419 kB/s | 813 kB     00:01
-    ns02: (20/31): python3-setuptools-53.0.0-15.el9.noarc 355 kB/s | 831 kB     00:02
-    ns02: (21/31): python3-policycoreutils-3.6-5.el9.noar 437 kB/s | 2.0 MB     00:04
-    ns02: (22/31): python3-libselinux-3.6-3.el9.x86_64.rp 279 kB/s | 186 kB     00:00
-    ns02: (23/31): audit-libs-3.1.5-8.el9.x86_64.rpm      360 kB/s | 121 kB     00:00
-    ns02: (24/31): libselinux-3.6-3.el9.x86_64.rpm        410 kB/s |  85 kB     00:00
-    ns02: (25/31): audit-3.1.5-8.el9.x86_64.rpm           447 kB/s | 253 kB     00:00
-    ns02: (26/31): libsemanage-3.6-5.el9_6.x86_64.rpm     483 kB/s | 117 kB     00:00
-    ns02: (27/31): libselinux-utils-3.6-3.el9.x86_64.rpm  183 kB/s | 164 kB     00:00
-    ns02: (28/31): openssl-3.5.8-2.el9_8.x86_64.rpm       664 kB/s | 1.4 MB     00:02
-    ns02: (29/31): policycoreutils-3.6-5.el9.x86_64.rpm   383 kB/s | 205 kB     00:00
-    ns02: (30/31): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 404 kB/s | 3.5 MB     00:08
-    ns02: (31/31): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  420 kB/s | 2.3 MB     00:05
+    ns02: (1/31): bind-dnssec-doc-9.16.23-40.el9_8.13.noa 1.3 MB/s |  46 kB     00:00
+    ns02: (2/31): bind-dnssec-utils-9.16.23-40.el9_8.13.x 2.7 MB/s | 114 kB     00:00
+    ns02: (3/31): bind-license-9.16.23-40.el9_8.13.noarch 869 kB/s |  14 kB     00:00
+    ns02: (4/31): bind-9.16.23-40.el9_8.13.x86_64.rpm     4.7 MB/s | 490 kB     00:00
+    ns02: (5/31): bind-utils-9.16.23-40.el9_8.13.x86_64.r 720 kB/s | 200 kB     00:00
+    ns02: (6/31): fstrm-0.6.1-3.el9.x86_64.rpm            358 kB/s |  27 kB     00:00
+    ns02: (7/31): libmaxminddb-1.5.2-4.el9.x86_64.rpm     724 kB/s |  32 kB     00:00
+    ns02: (8/31): libuv-1.42.0-2.el9_4.x86_64.rpm         458 kB/s | 146 kB     00:00
+    ns02: (9/31): policycoreutils-python-utils-3.6-5.el9. 447 kB/s |  69 kB     00:00
+    ns02: (10/31): python3-audit-3.1.5-8.el9.x86_64.rpm   329 kB/s |  82 kB     00:00
+    ns02: (11/31): python3-bind-9.16.23-40.el9_8.13.noarc 1.5 MB/s |  62 kB     00:00
+    ns02: (12/31): python3-distro-1.5.0-7.el9.noarch.rpm  1.2 MB/s |  36 kB     00:00
+    ns02: (13/31): python3-libsemanage-3.6-5.el9_6.x86_64 288 kB/s |  78 kB     00:00
+    ns02: (14/31): checkpolicy-3.6-1.el9.x86_64.rpm       181 kB/s | 351 kB     00:01
+    ns02: (15/31): bind-libs-9.16.23-40.el9_8.13.x86_64.r 583 kB/s | 1.2 MB     00:02
+    ns02: (16/31): protobuf-c-1.3.3-13.el9.x86_64.rpm     2.0 MB/s |  34 kB     00:00
+    ns02: (17/31): python3-ply-3.11-14.el9.noarch.rpm     178 kB/s | 103 kB     00:00
+    ns02: (18/31): python3-setools-4.4.4-1.el9.x86_64.rpm 534 kB/s | 551 kB     00:01
+    ns02: (19/31): openssl-fips-provider-3.5.8-2.el9_8.x8 294 kB/s | 813 kB     00:02
+    ns02: (20/31): python3-policycoreutils-3.6-5.el9.noar 586 kB/s | 2.0 MB     00:03
+    ns02: (21/31): python3-libselinux-3.6-3.el9.x86_64.rp 289 kB/s | 186 kB     00:00
+    ns02: (22/31): audit-3.1.5-8.el9.x86_64.rpm           1.2 MB/s | 253 kB     00:00
+    ns02: (23/31): audit-libs-3.1.5-8.el9.x86_64.rpm      1.1 MB/s | 121 kB     00:00
+    ns02: (24/31): libselinux-3.6-3.el9.x86_64.rpm        334 kB/s |  85 kB     00:00
+    ns02: (25/31): libselinux-utils-3.6-3.el9.x86_64.rpm  3.7 MB/s | 164 kB     00:00
+    ns02: (26/31): libsemanage-3.6-5.el9_6.x86_64.rpm     2.2 MB/s | 117 kB     00:00
+    ns02: (27/31): python3-setuptools-53.0.0-15.el9.noarc 233 kB/s | 831 kB     00:03
+    ns02: (28/31): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  788 kB/s | 2.3 MB     00:02
+    ns02: (29/31): policycoreutils-3.6-5.el9.x86_64.rpm   4.2 MB/s | 205 kB     00:00
+    ns02: (30/31): openssl-3.5.8-2.el9_8.x86_64.rpm       326 kB/s | 1.4 MB     00:04
+    ns02: (31/31): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 453 kB/s | 3.5 MB     00:07
     ns02: --------------------------------------------------------------------------------
-    ns02: Total                                           1.0 MB/s |  16 MB     00:15
+    ns02: Total                                           1.2 MB/s |  16 MB     00:13
     ns02: Running transaction check
     ns02: Transaction check succeeded.
     ns02: Running transaction test
@@ -508,7 +508,7 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> client1: Importing base box 'almalinux/9'...
 ==> client1: Matching MAC address for NAT networking...
 ==> client1: Checking if box 'almalinux/9' version '1.0.0' is up to date...
-==> client1: Setting the name of the VM: dz9_client1_1794421485829_56422
+==> client1: Setting the name of the VM: dz10_client1_1794588843130_79216
 ==> client1: Fixed port collision for 22 => 2222. Now on port 2201.
 ==> client1: Clearing any previously set network interfaces...
 ==> client1: Preparing network interfaces based on configuration...
@@ -534,12 +534,12 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> client1: Setting hostname...
 ==> client1: Configuring and enabling network interfaces...
 ==> client1: Mounting shared folders...
-    client1: D:/linux/Professional/36 DNS - настройка и обслуживание/dz9 => /vagrant
+    client1: D:/linux/Professional/36 DNS - настройка и обслуживание/dz10 => /vagrant
 ==> client1: Running provisioner: shell...
     client1: Running: inline script
-    client1: AlmaLinux 9 - AppStream                         1.0 MB/s |  34 MB     00:34
-    client1: AlmaLinux 9 - BaseOS                            1.0 MB/s |  57 MB     00:56
-    client1: AlmaLinux 9 - Extras                             38 kB/s |  33 kB     00:00
+    client1: AlmaLinux 9 - AppStream                         1.2 MB/s |  34 MB     00:28
+    client1: AlmaLinux 9 - BaseOS                            1.2 MB/s |  57 MB     00:48
+    client1: AlmaLinux 9 - Extras                             52 kB/s |  33 kB     00:00
     client1: Dependencies resolved.
     client1: ================================================================================
     client1:  Package                 Arch     Version                     Repository   Size
@@ -566,19 +566,19 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client1:
     client1: Total download size: 9.7 M
     client1: Downloading Packages:
-    client1: (1/11): bind-license-9.16.23-40.el9_8.13.noarch  98 kB/s |  14 kB     00:00
-    client1: (2/11): fstrm-0.6.1-3.el9.x86_64.rpm            1.2 MB/s |  27 kB     00:00
-    client1: (3/11): libmaxminddb-1.5.2-4.el9.x86_64.rpm     352 kB/s |  32 kB     00:00
-    client1: (4/11): libuv-1.42.0-2.el9_4.x86_64.rpm         1.3 MB/s | 146 kB     00:00
-    client1: (5/11): bind-utils-9.16.23-40.el9_8.13.x86_64.r 378 kB/s | 200 kB     00:00
-    client1: (6/11): protobuf-c-1.3.3-13.el9.x86_64.rpm      495 kB/s |  34 kB     00:00
-    client1: (7/11): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 853 kB/s | 1.2 MB     00:01
-    client1: (8/11): openssl-fips-provider-3.5.8-2.el9_8.x86 470 kB/s | 813 kB     00:01
-    client1: (9/11): openssl-3.5.8-2.el9_8.x86_64.rpm        470 kB/s | 1.4 MB     00:03
-    client1: (10/11): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  608 kB/s | 2.3 MB     00:03
-    client1: (11/11): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 363 kB/s | 3.5 MB     00:09
+    client1: (1/11): bind-license-9.16.23-40.el9_8.13.noarch 618 kB/s |  14 kB     00:00
+    client1: (2/11): fstrm-0.6.1-3.el9.x86_64.rpm            1.6 MB/s |  27 kB     00:00
+    client1: (3/11): bind-utils-9.16.23-40.el9_8.13.x86_64.r 3.6 MB/s | 200 kB     00:00
+    client1: (4/11): libmaxminddb-1.5.2-4.el9.x86_64.rpm     1.7 MB/s |  32 kB     00:00
+    client1: (5/11): libuv-1.42.0-2.el9_4.x86_64.rpm         3.4 MB/s | 146 kB     00:00
+    client1: (6/11): protobuf-c-1.3.3-13.el9.x86_64.rpm      130 kB/s |  34 kB     00:00
+    client1: (7/11): openssl-fips-provider-3.5.8-2.el9_8.x86 548 kB/s | 813 kB     00:01
+    client1: (8/11): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 464 kB/s | 1.2 MB     00:02
+    client1: (9/11): openssl-3.5.8-2.el9_8.x86_64.rpm        539 kB/s | 1.4 MB     00:02
+    client1: (10/11): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  587 kB/s | 2.3 MB     00:04
+    client1: (11/11): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 502 kB/s | 3.5 MB     00:07
     client1: --------------------------------------------------------------------------------
-    client1: Total                                           803 kB/s | 9.7 MB     00:12
+    client1: Total                                           1.2 MB/s | 9.7 MB     00:08
     client1: Running transaction check
     client1: Transaction check succeeded.
     client1: Running transaction test
@@ -632,7 +632,7 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> client2: Importing base box 'almalinux/9'...
 ==> client2: Matching MAC address for NAT networking...
 ==> client2: Checking if box 'almalinux/9' version '1.0.0' is up to date...
-==> client2: Setting the name of the VM: dz9_client2_1794421670175_16774
+==> client2: Setting the name of the VM: dz10_client2_1794589009335_76540
 ==> client2: Fixed port collision for 22 => 2222. Now on port 2202.
 ==> client2: Clearing any previously set network interfaces...
 ==> client2: Preparing network interfaces based on configuration...
@@ -658,12 +658,12 @@ Bringing machine 'client2' up with 'virtualbox' provider...
 ==> client2: Setting hostname...
 ==> client2: Configuring and enabling network interfaces...
 ==> client2: Mounting shared folders...
-    client2: D:/linux/Professional/36 DNS - настройка и обслуживание/dz9 => /vagrant
+    client2: D:/linux/Professional/36 DNS - настройка и обслуживание/dz10 => /vagrant
 ==> client2: Running provisioner: shell...
     client2: Running: inline script
-    client2: AlmaLinux 9 - AppStream                         859 kB/s |  34 MB     00:40
-    client2: AlmaLinux 9 - BaseOS                            853 kB/s |  57 MB     01:07
-    client2: AlmaLinux 9 - Extras                             43 kB/s |  33 kB     00:00
+    client2: AlmaLinux 9 - AppStream                         1.2 MB/s |  34 MB     00:28
+    client2: AlmaLinux 9 - BaseOS                            1.2 MB/s |  57 MB     00:48
+    client2: AlmaLinux 9 - Extras                             73 kB/s |  33 kB     00:00
     client2: Dependencies resolved.
     client2: ================================================================================
     client2:  Package                 Arch     Version                     Repository   Size
@@ -690,19 +690,19 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client2:
     client2: Total download size: 9.7 M
     client2: Downloading Packages:
-    client2: (1/11): bind-license-9.16.23-40.el9_8.13.noarch  68 kB/s |  14 kB     00:00
-    client2: (2/11): fstrm-0.6.1-3.el9.x86_64.rpm            488 kB/s |  27 kB     00:00
-    client2: (3/11): libmaxminddb-1.5.2-4.el9.x86_64.rpm     560 kB/s |  32 kB     00:00
-    client2: (4/11): bind-utils-9.16.23-40.el9_8.13.x86_64.r 486 kB/s | 200 kB     00:00
-    client2: (5/11): libuv-1.42.0-2.el9_4.x86_64.rpm         1.1 MB/s | 146 kB     00:00
-    client2: (6/11): protobuf-c-1.3.3-13.el9.x86_64.rpm      485 kB/s |  34 kB     00:00
-    client2: (7/11): openssl-fips-provider-3.5.8-2.el9_8.x86 463 kB/s | 813 kB     00:01
-    client2: (8/11): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 463 kB/s | 1.2 MB     00:02
-    client2: (9/11): openssl-3.5.8-2.el9_8.x86_64.rpm        608 kB/s | 1.4 MB     00:02
-    client2: (10/11): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 489 kB/s | 3.5 MB     00:07
-    client2: (11/11): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  420 kB/s | 2.3 MB     00:05
+    client2: (1/11): bind-license-9.16.23-40.el9_8.13.noarch 485 kB/s |  14 kB     00:00
+    client2: (2/11): fstrm-0.6.1-3.el9.x86_64.rpm            1.8 MB/s |  27 kB     00:00
+    client2: (3/11): bind-utils-9.16.23-40.el9_8.13.x86_64.r 3.3 MB/s | 200 kB     00:00
+    client2: (4/11): libmaxminddb-1.5.2-4.el9.x86_64.rpm     1.4 MB/s |  32 kB     00:00
+    client2: (5/11): libuv-1.42.0-2.el9_4.x86_64.rpm         4.7 MB/s | 146 kB     00:00
+    client2: (6/11): protobuf-c-1.3.3-13.el9.x86_64.rpm      1.7 MB/s |  34 kB     00:00
+    client2: (7/11): openssl-fips-provider-3.5.8-2.el9_8.x86 661 kB/s | 813 kB     00:01
+    client2: (8/11): bind-libs-9.16.23-40.el9_8.13.x86_64.rp 532 kB/s | 1.2 MB     00:02
+    client2: (9/11): openssl-3.5.8-2.el9_8.x86_64.rpm        693 kB/s | 1.4 MB     00:02
+    client2: (10/11): openssl-devel-3.5.8-2.el9_8.x86_64.rpm 469 kB/s | 3.5 MB     00:07
+    client2: (11/11): openssl-libs-3.5.8-2.el9_8.x86_64.rpm  424 kB/s | 2.3 MB     00:05
     client2: --------------------------------------------------------------------------------
-    client2: Total                                           1.0 MB/s | 9.7 MB     00:09
+    client2: Total                                           1.1 MB/s | 9.7 MB     00:09
     client2: Running transaction check
     client2: Transaction check succeeded.
     client2: Running transaction test
@@ -726,8 +726,7 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client2:   Running scriptlet: openssl-libs-1:3.2.2-6.el9_5.x86_64                  14/14
     client2:   Verifying        : bind-libs-32:9.16.23-40.el9_8.13.x86_64               1/14
     client2:   Verifying        : bind-license-32:9.16.23-40.el9_8.13.noarch            2/14
-    client2:   Verifying        : bind-utils-32:9.16.23-40.el9_8.13.x86_64              3/14
-    client2:   Verifying        : fstrm-0.6.1-3.el9.x86_64                              4/14
+    client2:   Verifying        : bind-utils-32:9.16.23-40.el9_8.13.x86_64      client2:   Verifying        : fstrm-0.6.1-3.el9.x86_64                              4/14
     client2:   Verifying        : libmaxminddb-1.5.2-4.el9.x86_64                       5/14
     client2:   Verifying        : libuv-1:1.42.0-2.el9_4.x86_64                         6/14
     client2:   Verifying        : openssl-fips-provider-1:3.5.8-2.el9_8.x86_64          7/14
@@ -753,7 +752,485 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client2:   protobuf-c-1.3.3-13.el9.x86_64
     client2:
     client2: Complete!
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz9>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10> vagrant ssh ns01
+[vagrant@ns01 ~]$ sudo named-checkconf
+[vagrant@ns01 ~]$ sudo named-checkzone dns.lab /etc/named/named.dns.lab
+zone dns.lab/IN: loaded serial 2711201407
+OK
+[vagrant@ns01 ~]$ sudo named-checkzone dns.lab /etc/named/named.dns.lab.client
+zone dns.lab/IN: loaded serial 2711201407
+OK
+[vagrant@ns01 ~]$ sudo named-checkzone newdns.lab /etc/named/named.newdns.lab
+zone newdns.lab/IN: loaded serial 2711201407
+OK
+[vagrant@ns01 ~]$ sudo named-checkzone newdns.lab /etc/named/empty.newdns.lab
+zone newdns.lab/IN: loaded serial 2711201407
+OK
+[vagrant@ns01 ~]$ dig @localhost web1.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @localhost web1.dns.lab
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 38761
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: bb19eabfa2160cf0010000006af74bfd766a7a92276c8611 (good)
+;; QUESTION SECTION:
+;web1.dns.lab.                  IN      A
+
+;; ANSWER SECTION:
+web1.dns.lab.           3600    IN      A       192.168.50.15
+
+;; Query time: 2 msec
+;; SERVER: ::1#53(::1)
+;; WHEN: Fri Nov 13 17:42:21 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+[vagrant@ns01 ~]$ dig @localhost web2.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @localhost web2.dns.lab
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 14463
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+;; SERVER: ::1#53(::1)
+;; MSG SIZE  rcvd: 85
+
+[vagrant@ns01 ~]$ dig @localhost www.newdns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @localhost www.newdns.lab
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 61063
+;; flags: qr aa rd; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 80fd8bf10bfadda6010000006af74c08e66122308c3d5ffa (good)
+;; QUESTION SECTION:
+;www.newdns.lab.                        IN      A
+
+;; ANSWER SECTION:
+www.newdns.lab.         3600    IN      A       192.168.50.15
+www.newdns.lab.         3600    IN      A       192.168.50.16
+
+;; Query time: 1 msec
+;; SERVER: ::1#53(::1)
+;; WHEN: Fri Nov 13 17:42:32 UTC 2026
+;; MSG SIZE  rcvd: 103
+
+[vagrant@ns01 ~]$ exit
+logout
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10> vagrant ssh ns02
+[vagrant@ns02 ~]$ sudo named-checkconf
+[vagrant@ns02 ~]$ sudo ls -l /var/named/slaves/
+total 16
+-rw-r--r--. 1 named named 268 Nov 13 16:53 empty.newdns.lab
+-rw-r--r--. 1 named named 284 Nov 13 16:53 named.dns.lab.client1
+-rw-r--r--. 1 named named 324 Nov 13 16:53 named.dns.lab.default
+-rw-r--r--. 1 named named 316 Nov 13 17:39 named.newdns.lab.default
+[vagrant@ns02 ~]$ sudo named-checkzone -f raw dns.lab /var/named/slaves/named.dns.lab.default
+zone dns.lab/IN: loaded serial 2711201407
+OK
+[vagrant@ns02 ~]$ sudo named-checkzone -f raw dns.lab /var/named/slaves/named.dns.lab.client1
+zone dns.lab/IN: loaded serial 2711201407
+OK
+[vagrant@ns02 ~]$ sudo named-checkzone -f raw newdns.lab /var/named/slaves/named.newdns.lab.default
+zone newdns.lab/IN: loaded serial 2711201407
+OK
+[vagrant@ns02 ~]$ sudo named-checkzone -f raw newdns.lab /var/named/slaves/empty.newdns.lab
+zone newdns.lab/IN: loaded serial 2711201407
+OK
+[vagrant@ns02 ~]$ dig @localhost web1.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @localhost web1.dns.lab
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 63025
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: df8974e8ac845517010000006af74c824ca1f2b1d09f53ef (good)
+;; QUESTION SECTION:
+;web1.dns.lab.                  IN      A
+
+;; ANSWER SECTION:
+web1.dns.lab.           3600    IN      A       192.168.50.15
+
+;; Query time: 3 msec
+;; SERVER: ::1#53(::1)
+;; WHEN: Fri Nov 13 17:44:34 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+[vagrant@ns02 ~]$ dig @localhost web2.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @localhost web2.dns.lab
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 56524
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+[vagrant@ns02 ~]$ dig @localhost www.newdns.lab
+; <<>> DiG 9.16.23-RH <<>> @localhost www.newdns.lab
+; (2 servers found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 29039
+;; flags: qr aa rd; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: c6aed6a353d673f5010000006af74c920857d6986428e9cf (good)
+;; QUESTION SECTION:
+;www.newdns.lab.                        IN      A
+
+;; ANSWER SECTION:
+www.newdns.lab.         3600    IN      A       192.168.50.16
+www.newdns.lab.         3600    IN      A       192.168.50.15
+
+;; Query time: 1 msec
+;; SERVER: ::1#53(::1)
+;; WHEN: Fri Nov 13 17:44:50 UTC 2026
+;; MSG SIZE  rcvd: 103
+
+[vagrant@ns02 ~]$ exit
+logout
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10> vagrant ssh client1
+[vagrant@client1 ~]$ dig @192.168.50.10 web1.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web1.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 20224
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 15fe25e9a1ea6f7c010000006af74e4696323ba5018825b1 (good)
+;; QUESTION SECTION:
+;web1.dns.lab.                  IN      A
+
+;; ANSWER SECTION:
+web1.dns.lab.           3600    IN      A       192.168.50.15
+
+;; Query time: 4 msec
+;; SERVER: 192.168.50.10#53(192.168.50.10)
+;; WHEN: Fri Nov 13 17:52:06 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+[vagrant@client1 ~]$ dig @192.168.50.11 web1.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web1.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 39850
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: ddfa91cc186fc69f010000006af74e4e41dc5fd7f3bb83b0 (good)
+;; QUESTION SECTION:
+;web1.dns.lab.                  IN      A
+
+;; ANSWER SECTION:
+web1.dns.lab.           3600    IN      A       192.168.50.15
+
+;; Query time: 3 msec
+;; SERVER: 192.168.50.11#53(192.168.50.11)
+;; WHEN: Fri Nov 13 17:52:14 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+[vagrant@client1 ~]$ dig @192.168.50.10 web2.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 30203
+;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 9ddd3b14624004f0010000006af74e56079a02a2e2474cd9 (good)
+;; QUESTION SECTION:
+;web2.dns.lab.                  IN      A
+
+;; AUTHORITY SECTION:
+dns.lab.                600     IN      SOA     ns01.dns.lab. root.dns.lab. 2711201407 3600 600 86400 600
+
+;; Query time: 5 msec
+;; SERVER: 192.168.50.10#53(192.168.50.10)
+;; WHEN: Fri Nov 13 17:52:22 UTC 2026
+;; MSG SIZE  rcvd: 115
+
+[vagrant@client1 ~]$ dig @192.168.50.11 web2.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web2.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 14137
+;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: c221c34eecacc720010000006af74e5b094c58d0b599fa9f (good)
+;; QUESTION SECTION:
+;web2.dns.lab.                  IN      A
+
+;; AUTHORITY SECTION:
+dns.lab.                600     IN      SOA     ns01.dns.lab. root.dns.lab. 2711201407 3600 600 86400 600
+
+;; Query time: 3 msec
+;; SERVER: 192.168.50.11#53(192.168.50.11)
+;; WHEN: Fri Nov 13 17:52:27 UTC 2026
+;; MSG SIZE  rcvd: 115
+
+[vagrant@client1 ~]$ dig @192.168.50.10 www.newdns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 25325
+;; flags: qr aa rd; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+[vagrant@client1 ~]$ dig @192.168.50.11 www.newdns.lab
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 www.newdns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 57037
+;; flags: qr aa rd; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 83e116e563b94010010000006af74e755a51fa753074a1a4 (good)
+;; QUESTION SECTION:
+;www.newdns.lab.                        IN      A
+
+;; ANSWER SECTION:
+www.newdns.lab.         3600    IN      A       192.168.50.15
+www.newdns.lab.         3600    IN      A       192.168.50.16
+
+;; Query time: 2 msec
+;; SERVER: 192.168.50.11#53(192.168.50.11)
+;; WHEN: Fri Nov 13 17:52:53 UTC 2026
+;; MSG SIZE  rcvd: 103
+
+[vagrant@client1 ~]$ exit
+logout
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10> vagrant ssh client2
+[vagrant@client2 ~]$ dig @192.168.50.10 web1.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web1.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 54945
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: dcefeff7940c7f5b010000006af74e9546fc9304d0d71359 (good)
+;; QUESTION SECTION:
+;web1.dns.lab.                  IN      A
+
+;; ANSWER SECTION:
+web1.dns.lab.           3600    IN      A       192.168.50.15
+
+;; Query time: 3 msec
+;; SERVER: 192.168.50.10#53(192.168.50.10)
+;; WHEN: Fri Nov 13 17:53:25 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+[vagrant@client2 ~]$ dig @192.168.50.11 web1.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web1.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 50128
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: acd2ab5ab263a850010000006af74e99b5202ed667eef500 (good)
+;; QUESTION SECTION:
+;web1.dns.lab.                  IN      A
+
+;; ANSWER SECTION:
+web1.dns.lab.           3600    IN      A       192.168.50.15
+
+;; Query time: 4 msec
+;; SERVER: 192.168.50.11#53(192.168.50.11)
+;; WHEN: Fri Nov 13 17:53:29 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+[vagrant@client2 ~]$ dig @192.168.50.10 web2.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 46318
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: fb1c4b2570cb76be010000006af74eab5c67390f4faba4d6 (good)
+;; QUESTION SECTION:
+;web2.dns.lab.                  IN      A
+
+;; ANSWER SECTION:
+web2.dns.lab.           3600    IN      A       192.168.50.16
+
+;; Query time: 3 msec
+;; SERVER: 192.168.50.10#53(192.168.50.10)
+;; WHEN: Fri Nov 13 17:53:47 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+[vagrant@client2 ~]$ dig @192.168.50.11 web2.dns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 web2.dns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 13306
+;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: f618406e34835ab6010000006af74eb1c951e87a6f7d8688 (good)
+;; QUESTION SECTION:
+;web2.dns.lab.                  IN      A
+
+;; ANSWER SECTION:
+web2.dns.lab.           3600    IN      A       192.168.50.16
+
+;; Query time: 5 msec
+;; SERVER: 192.168.50.11#53(192.168.50.11)
+;; WHEN: Fri Nov 13 17:53:53 UTC 2026
+;; MSG SIZE  rcvd: 85
+
+[vagrant@client2 ~]$ dig @192.168.50.10 www.newdns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 3767
+;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: 39543a477c1887a8010000006af74ebc01be3abf5377bf34 (good)
+;; QUESTION SECTION:
+;www.newdns.lab.                        IN      A
+
+;; AUTHORITY SECTION:
+newdns.lab.             600     IN      SOA     ns01.newdns.lab. root.newdns.lab. 2711201407 3600 600 86400 600
+
+;; Query time: 3 msec
+;; SERVER: 192.168.50.10#53(192.168.50.10)
+;; WHEN: Fri Nov 13 17:54:04 UTC 2026
+;; MSG SIZE  rcvd: 117
+
+[vagrant@client2 ~]$ dig @192.168.50.11 www.newdns.lab
+
+; <<>> DiG 9.16.23-RH <<>> @192.168.50.11 www.newdns.lab
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NXDOMAIN, id: 60331
+;; flags: qr aa rd; QUERY: 1, ANSWER: 0, AUTHORITY: 1, ADDITIONAL: 1
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+; COOKIE: dbab78c4892563af010000006af74ec534254439c0ae8e6f (good)
+;; QUESTION SECTION:
+;www.newdns.lab.                        IN      A
+
+;; AUTHORITY SECTION:
+newdns.lab.             600     IN      SOA     ns01.newdns.lab. root.newdns.lab. 2711201407 3600 600 86400 600
+
+;; Query time: 2 msec
+;; SERVER: 192.168.50.11#53(192.168.50.11)
+;; WHEN: Fri Nov 13 17:54:13 UTC 2026
+;; MSG SIZE  rcvd: 117
+
+[vagrant@client2 ~]$ exit
+logout
+PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
 
 #############################
 ##                         ##
