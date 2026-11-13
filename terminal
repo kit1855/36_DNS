@@ -935,7 +935,49 @@ PS D:\linux\Professional\36 DNS - настройка и обслуживание
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
 PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10> vagrant ssh client1
+
+
+
+#############################
+##                         ##
+##   проверки на ВМ ns01   ##
+##                         ##
+#############################
+
+# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
+# В репозитории это файл provisioning/master-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
+# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
+# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.keys";
+
+
+# проверки, что сам ВМ ns01 может отдавать зоны, статус всех проверок NOERROR.
+
+
+#############################
+##                         ##
+##   проверки на ВМ ns02   ##
+##                         ##
+#############################
+
+# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
+# В репозитории это файл provisioning/slave-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
+# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
+# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.keys";
+
+
+# проверка, что Slave получил зоны с Master
+
+
+# проверки, что ВМ ns02 может отдавать зоны
+
+
+################################
+##                            ##
+##   проверки на ВМ client1   ##
+##                            ##
+################################
+
+# проверка что client1 — видит web1 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NOERROR
 [vagrant@client1 ~]$ dig @192.168.50.10 web1.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web1.dns.lab
@@ -984,6 +1026,7 @@ web1.dns.lab.           3600    IN      A       192.168.50.15
 ;; WHEN: Fri Nov 13 17:52:14 UTC 2026
 ;; MSG SIZE  rcvd: 85
 
+# проверка что client1 — не видит web2 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NXDOMAIN
 [vagrant@client1 ~]$ dig @192.168.50.10 web2.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
@@ -1032,6 +1075,7 @@ dns.lab.                600     IN      SOA     ns01.dns.lab. root.dns.lab. 2711
 ;; WHEN: Fri Nov 13 17:52:27 UTC 2026
 ;; MSG SIZE  rcvd: 115
 
+# проверка что client1 — видит www из зоны newdns.lab с мастера и со слэйва, об этом говорит статус NOERROR
 [vagrant@client1 ~]$ dig @192.168.50.10 www.newdns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
@@ -1068,22 +1112,13 @@ www.newdns.lab.         3600    IN      A       192.168.50.16
 ;; WHEN: Fri Nov 13 17:52:53 UTC 2026
 ;; MSG SIZE  rcvd: 103
 
-[vagrant@client1 ~]$ exit
-logout
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10> vagrant ssh client2
+################################
+##                            ##
+##   проверки на ВМ client2   ##
+##                            ##
+################################
+
+# проверка что client2 — видит web1 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NOERROR
 [vagrant@client2 ~]$ dig @192.168.50.10 web1.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web1.dns.lab
@@ -1132,6 +1167,7 @@ web1.dns.lab.           3600    IN      A       192.168.50.15
 ;; WHEN: Fri Nov 13 17:53:29 UTC 2026
 ;; MSG SIZE  rcvd: 85
 
+# проверка что client2 — видит web2 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NOERROR
 [vagrant@client2 ~]$ dig @192.168.50.10 web2.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 web2.dns.lab
@@ -1180,6 +1216,7 @@ web2.dns.lab.           3600    IN      A       192.168.50.16
 ;; WHEN: Fri Nov 13 17:53:53 UTC 2026
 ;; MSG SIZE  rcvd: 85
 
+# проверка что client2 — не видит www из зоны newdns.lab с мастера и со слэйва, об этом говорит статус NXDOMAIN
 [vagrant@client2 ~]$ dig @192.168.50.10 www.newdns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @192.168.50.10 www.newdns.lab
@@ -1227,69 +1264,3 @@ newdns.lab.             600     IN      SOA     ns01.newdns.lab. root.newdns.lab
 ;; SERVER: 192.168.50.11#53(192.168.50.11)
 ;; WHEN: Fri Nov 13 17:54:13 UTC 2026
 ;; MSG SIZE  rcvd: 117
-
-[vagrant@client2 ~]$ exit
-logout
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-
-#############################
-##                         ##
-##   проверки на ВМ ns01   ##
-##                         ##
-#############################
-
-# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
-# В репозитории это файл provisioning/master-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
-# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
-# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.keys";
-
-
-# проверки, что сам ВМ ns01 может отдавать зоны, статус всех проверок NOERROR.
-
-
-#############################
-##                         ##
-##   проверки на ВМ ns02   ##
-##                         ##
-#############################
-
-# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
-# В репозитории это файл provisioning/slave-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
-# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
-# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.keys";
-
-
-# проверка, что Slave получил зоны с Master
-
-
-# проверки, что ВМ ns02 может отдавать зоны
-
-
-################################
-##                            ##
-##   проверки на ВМ client1   ##
-##                            ##
-################################
-
-# проверка что client1 — видит web1 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NOERROR
-
-
-# проверка что client1 — не видит web2 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NXDOMAIN
-
-
-# проверка что client1 — видит www из зоны newdns.lab с мастера и со слэйва, об этом говорит статус NOERROR
-
-
-################################
-##                            ##
-##   проверки на ВМ client2   ##
-##                            ##
-################################
-
-# проверка что client2 — видит web1 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NOERROR
-
-
-# проверка что client2 — видит web2 из зоны dns.lab с мастера и со слэйва, об этом говорит статус NOERROR
-
-
-# проверка что client2 — не видит www из зоны newdns.lab с мастера и со слэйва, об этом говорит статус NXDOMAIN
