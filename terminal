@@ -752,8 +752,20 @@ Bringing machine 'client2' up with 'virtualbox' provider...
     client2:   protobuf-c-1.3.3-13.el9.x86_64
     client2:
     client2: Complete!
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10> vagrant ssh ns01
+
+#############################
+##                         ##
+##   проверки на ВМ ns01   ##
+##                         ##
+#############################
+
+# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
+# В репозитории это файл provisioning/master-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
+# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
+# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.keys";
 [vagrant@ns01 ~]$ sudo named-checkconf
+
+# проверки корректности скачанных зон на сервер
 [vagrant@ns01 ~]$ sudo named-checkzone dns.lab /etc/named/named.dns.lab
 zone dns.lab/IN: loaded serial 2711201407
 OK
@@ -766,6 +778,8 @@ OK
 [vagrant@ns01 ~]$ sudo named-checkzone newdns.lab /etc/named/empty.newdns.lab
 zone newdns.lab/IN: loaded serial 2711201407
 OK
+
+# проверки, что сам ВМ ns01 может отдавать зоны, статус всех проверок NOERROR.
 [vagrant@ns01 ~]$ dig @localhost web1.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @localhost web1.dns.lab
@@ -829,25 +843,27 @@ www.newdns.lab.         3600    IN      A       192.168.50.16
 ;; WHEN: Fri Nov 13 17:42:32 UTC 2026
 ;; MSG SIZE  rcvd: 103
 
-[vagrant@ns01 ~]$ exit
-logout
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10> vagrant ssh ns02
+#############################
+##                         ##
+##   проверки на ВМ ns02   ##
+##                         ##
+#############################
+
+# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
+# В репозитории это файл provisioning/slave-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
+# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
+# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.keys";
 [vagrant@ns02 ~]$ sudo named-checkconf
+
+# проверка, что Slave получил зоны с Master
 [vagrant@ns02 ~]$ sudo ls -l /var/named/slaves/
 total 16
 -rw-r--r--. 1 named named 268 Nov 13 16:53 empty.newdns.lab
 -rw-r--r--. 1 named named 284 Nov 13 16:53 named.dns.lab.client1
 -rw-r--r--. 1 named named 324 Nov 13 16:53 named.dns.lab.default
 -rw-r--r--. 1 named named 316 Nov 13 17:39 named.newdns.lab.default
+
+# проверки, что ВМ ns02 получил зоны и они корректны
 [vagrant@ns02 ~]$ sudo named-checkzone -f raw dns.lab /var/named/slaves/named.dns.lab.default
 zone dns.lab/IN: loaded serial 2711201407
 OK
@@ -860,6 +876,8 @@ OK
 [vagrant@ns02 ~]$ sudo named-checkzone -f raw newdns.lab /var/named/slaves/empty.newdns.lab
 zone newdns.lab/IN: loaded serial 2711201407
 OK
+
+# проверки, что ВМ ns02 может отдавать зоны, у всех проверок статус NOERROR
 [vagrant@ns02 ~]$ dig @localhost web1.dns.lab
 
 ; <<>> DiG 9.16.23-RH <<>> @localhost web1.dns.lab
@@ -920,56 +938,7 @@ www.newdns.lab.         3600    IN      A       192.168.50.15
 ;; WHEN: Fri Nov 13 17:44:50 UTC 2026
 ;; MSG SIZE  rcvd: 103
 
-[vagrant@ns02 ~]$ exit
-logout
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-PS D:\linux\Professional\36 DNS - настройка и обслуживание\dz10>
-
-
-
-#############################
-##                         ##
-##   проверки на ВМ ns01   ##
-##                         ##
-#############################
-
-# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
-# В репозитории это файл provisioning/master-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
-# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
-# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.keys";
-
-
-# проверки, что сам ВМ ns01 может отдавать зоны, статус всех проверок NOERROR.
-
-
-#############################
-##                         ##
-##   проверки на ВМ ns02   ##
-##                         ##
-#############################
-
-# проверка конфигурации. Если ошибок нет, то ничего не покажет. Если есть ошибки, покажет строки с ошибками.
-# В репозитории это файл provisioning/slave-named.conf, который копируется в /etc/named.conf, который уже и проверяется.
-# также проверяются все заинклюженные файлы, в том числе и provisioning/named.zonetransfer.keys,
-# который заинклюжен в named.conf строкой include "/etc/named.zonetransfer.keys";
-
-
-# проверка, что Slave получил зоны с Master
-
-
-# проверки, что ВМ ns02 может отдавать зоны
-
+[vagrant@ns02 ~]$
 
 ################################
 ##                            ##
